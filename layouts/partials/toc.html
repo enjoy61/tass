@@ -1,0 +1,8 @@
+{{ if gt .WordCount 10 }}
+<aside>
+    <header>
+    <h2>文章目录</h2>
+    </header>
+    {{ .TableOfContents }}
+</aside>
+{{ end }}

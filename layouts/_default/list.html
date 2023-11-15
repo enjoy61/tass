@@ -9,11 +9,15 @@
     </head>
 
     <body>
+        {{ partial "navbar.html" . }}
+        
+        <div class="container">
         <!-- {{ with .Site.GetPage "/post" }}<a href="{{.Permalink}}">{{ .Title }}</a>{{ end }} -->
         {{ range .Pages.ByPublishDate.Reverse }}
         <div>
             <a href="{{.Permalink}}">{{.Title}}</a>
         </div>
         {{ end }}
+    </div>
     </body>
 </html>

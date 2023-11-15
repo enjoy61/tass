@@ -11,39 +11,17 @@
 
     <body>
         <!-- 导航栏 -->
-        <div class="container p-5">
-            <nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-top">
-                <a class="navbar-brand" href="/">六一的部落格</a>
-                <ul class="navbar-nav">
-                    {{ range .Site.Menus.main }} 
-                    {{ if .HasChildren }}
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-bs-toggle="dropdown">
-                            {{ .Name }}
-                        </a>    
-                        <div class="dropdown-menu">
-                            {{ range .Children }}
-                            <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
-                            {{ end }}
-                        </div>
-                    </li>    
-                    {{ else }}
-                     <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
-                    {{ end }} 
-                    {{ end }}
-                </ul>
-            </nav>
-        </div>
+        {{ partial "navbar.html" . }}
 
         <!-- 更新列表 -->
         <div class="container p-5 my-5 border">
             <h2> 最近发布 </h2>
             {{ $start := math.Counter }}
             {{ $count := 10 }}
-            {{ $format := "Mon, 2 Jan 2006 03:04 pm"}}
+            {{ $format := "Mon, 2 Jan 2006 03:04 pm" }}
             {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook" }}
             <div>
-                <a href="{{ .Permalink }}">{{ .PublishDate | time.Format $format }}  | {{ .Title }}</a>
+                <a href="{{ .Permalink }}">{{ .PublishDate | time.Format $format }} - {{ .Title }}</a>
             </div>
                 {{ $ans := sub math.Counter $start }}
                 {{ $ans := int $ans }}
@@ -57,10 +35,10 @@
             <h2> 最近更新 </h2>
             {{ $start := math.Counter }}
             {{ $count := 10 }}
-            {{ $format := "Mon, 2 Jan 2006 03:04 pm"}}
+            {{ $format := "Mon, 2 Jan 2006 03:04 pm" }}
             {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "notebook" }}
             <div>
-                <a href="{{ .Permalink }}">{{ .Lastmod | time.Format $format }} | {{ .Title }}</a>
+                <a href="{{ .Permalink }}">{{ .Lastmod | time.Format $format }} - {{ .Title }}</a>
             </div>
 
                 {{ $ans := sub math.Counter $start }}

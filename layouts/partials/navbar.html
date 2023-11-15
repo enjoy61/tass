@@ -1,0 +1,25 @@
+<div class="container p-5">
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">六一的部落格</a>
+            <ul class="navbar-nav me-auto">
+                {{ range .Site.Menus.main }} 
+                {{ if .HasChildren }}
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-bs-toggle="dropdown">
+                        {{ .Name }}
+                    </a>    
+                    <div class="dropdown-menu">
+                        {{ range .Children }}
+                        <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
+                        {{ end }}
+                    </div>
+                </li>    
+                {{ else }}
+                 <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }} 
+                {{ end }}
+            </ul>
+        </div>
+    </nav>
+</div>

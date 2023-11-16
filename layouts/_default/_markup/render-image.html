@@ -1,0 +1,7 @@
+<!-- 
+只能匹配
+![Text](https://gohugo.io/images/hugo-logo-wide.svg "Title")
+-->
+<p class="md__image">
+  <img src="{{ .Destination | safeURL }}" class="img-thumbnail rounded" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} />
+</p>

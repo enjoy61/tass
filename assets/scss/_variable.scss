@@ -1,0 +1,57 @@
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+$tango-blue: #2A4A83;
+$tango-headbar-blue: #46629D;
+$tango-purple: #563863;
+$tango-red: #961D13;
+$tango-orange: #A7551F;
+$tango-green: #47663C;
+$tango-light-grey: #E5E6E7;
+$tango-primary: $tango-blue;
+$tango-bg: #EEEEEC;
+$tango-border: $gray-400;
+$tango-header-bg: #E6E6E6;
+$tango-toc-line: #8F918D;
+$tango-header-bar: $tango-headbar-blue;
+$tango-table-th-bg: $gray-400;
+$tango-table-td-bg: $gray-300;
+$tango-table-border: $gray-200;
+$tango-toc-highlight: $tango-blue;
+$tango-toc-hover-highlight: $tango-green;
+$tango-article-highlight: $tango-purple;
+$tango-article-hover-highlight: $tango-green;
+$tango-headbar-highlight: $tango-red;
+$tango-headbar-hover-highlight: $tango-green;
+$tango-headerbar: $tango-header-bg;
+$tango-scrollbar: $gray-300;
+$tango-scrollbar-bg: $tango-bg;
+$tango-scrollbar-hover: $gray-400;
+$tango-scrollbar-hover-bg: $tango-bg;
+$tango-block: #D3D3D3;
+
+
+$navbar-bg: $tango-header-bg;
+$content-bg: $tango-bg;
+$offcanvas-bg: $tango-bg;
+$border-color: $tango-border;
+
+
+.border-s {
+	border: 1px solid $border-color;
+}
+
+.border-top-s {
+	border-top: 1px solid $border-color;
+}
+
+.border-bottom-s {
+	border-bottom: 1px solid $border-color;
+}

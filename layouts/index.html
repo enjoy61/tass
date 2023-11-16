@@ -2,19 +2,15 @@
 <html lang="zh">
 
     <head>
-        <meta charset="UTF-8">
-        <title>六一的部落格</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+        {{ partial "head.html" . }}        
     </head>
 
-    <body>
+    <body class="content-s">
         <!-- 导航栏 -->
         {{ partial "navbar.html" . }}
 
         <!-- 更新列表 -->
-        <div class="container p-5 my-5 border">
+        <div class="container p-5 my-5 border-s">
             <h2> 最近发布 </h2>
             {{ $start := math.Counter }}
             {{ $count := 10 }}
@@ -31,7 +27,7 @@
             {{ end }}
         </div>
 
-        <div class="container p-5 my-5 border">        
+        <div class="container p-5 my-5 border-s">        
             <h2> 最近更新 </h2>
             {{ $start := math.Counter }}
             {{ $count := 10 }}
@@ -48,5 +44,8 @@
                 {{ end }}
             {{ end }}
         </div>
+
+        {{ partial "footer.html" . }}
+
     </body>
 </html>

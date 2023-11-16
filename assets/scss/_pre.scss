@@ -1,0 +1,30 @@
+pre {     
+  font-family: Consolas;    
+  text-align: left; 
+  padding: 1em;
+
+  margin: 0;
+  border-radius: 5px; 
+  white-space: pre;  
+  word-spacing: normal;   
+  word-break: normal;    
+  word-wrap: normal;    
+  line-height: 1.5;
+
+  tab-width: 4;
+} 
+
+pre span {    
+  line-height: 1.5rem;  
+  white-space: pre;
+}
+
+pre[data-lang]::before {
+  content: attr(data-lang);
+  display: inline;
+  margin: auto;
+  color: gray;
+//  background-color: gray;  
+//  border-radius: 3px; 
+  border-bottom: 1px solid gray;
+}

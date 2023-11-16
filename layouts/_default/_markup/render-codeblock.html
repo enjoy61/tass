@@ -1,0 +1,28 @@
+{{ $lineNumbers := false }}
+{{ $ignoredLanguages := slice "md" "markdown" "text" "txt" }}
+
+{{ if and (transform.CanHighlight .Type ) (not (in $ignoredLanguages .Type)) }}
+  {{ $lineNumbers = "inline" }}
+{{ end }}
+
+{{ $style := "vulcan" }}
+
+{{ $opts := merge .Options (dict "linenos" $lineNumbers) }}
+{{ $opts = merge $opts (dict "style" $style) }}
+
+{{ if ne .Type "text"}} 
+  {{ $text := .Type }}
+  {{ if eq .Type "bash" }}
+    {{ $text = "BASH" }}
+  {{ else if eq .Type "csharp" }}  
+    {{ $text = "C#" }}
+  {{ else if eq .Type "cpp" }}  
+    {{ $text = "C++" }}
+  {{ else if eq .Type "html" }}  
+    {{ $text = "HTML" }}  
+  {{ end }}
+  
+<pre data-lang={{ $text }} class="bg-dark my-4">{{ $result := transform.HighlightCodeBlock . $opts }} {{ $result.Inner }}</pre>
+{{ else }}
+<pre class="bg-dark my-4">{{ $result := transform.HighlightCodeBlock . $opts }} {{ $result.Inner }}</pre>
+{{ end }}

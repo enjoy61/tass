@@ -2,16 +2,10 @@
 <html lang="zh">
 
     <head>
-        <meta charset="UTF-8">
-        <title>六一的部落格 - {{.Title}}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
-
-
+        {{ partial "head.html" . }}        
     </head>
 
-    <body>
+    <body class="content-s">
         {{ partial "navbar.html" . }}
 
         <div class="container-fluid mt-3">
@@ -23,26 +17,28 @@
                 </div>    
 
                 <div class="col-md-6">
-                    <div id="post" class="container p-5 my-5 border">
+                    <div id="post" class="container p-3 my-3 border-s">
                         <article>
                             <header>
                                 <h1 class="post-title">{{ .Title }}</h1>
-                                {{ $format := "02 Jan 2006" }}
-                                <p>发布于 {{ .PublishDate | time.Format $format }}, 最后更新于 {{ .Lastmod | time.Format $format }}</p>
+                                {{ if or (eq .Section "notebook") (eq .Section "blog") }}
+                                    {{ $format := "02 Jan 2006" }}
+                                    <p class="text-muted">发布于 {{ .PublishDate | time.Format $format }}, 最后更新于 {{ .Lastmod | time.Format $format }}</p>
+                                    {{ end }}
                             </header>
                             {{.Content}}
                         </article>
                     </div>
                     {{ if or (eq .Section "notebook") (eq .Section "blog") }}
-                    <div class="container p-5 my-5 border">
-                        {{ with .NextInSection }}
-                        <li> 上一篇 
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </li>
-                        {{ end }}
+                    <div class="container p-5 my-5 border-s">
                         {{ with .PrevInSection }}
                         <li> 下一篇 
                             <a href="{{ .Permalink }}">{{ .Title }}</a> 
+                        </li>
+                        {{ end }}
+                        {{ with .NextInSection }}
+                        <li> 上一篇 
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
                         </li>
                         {{ end }}
                     </div>
@@ -50,12 +46,14 @@
                 </div>
 
                 {{ if or (eq .Section "notebook") (eq .Section "blog") }}
-                <div class="col-md-3 container p-5 my-5">
+                <div class="col-md-3 container-fluid p-3 my-3">
                     {{ partial "toc.html" . }}
                 </div>
                 {{ end }}
             </div>
         </div>
+
+        {{ partial "footer.html" . }}
     </body>
 
 </html>

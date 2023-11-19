@@ -17,7 +17,7 @@
                 </div>    
 
                 <div class="col-md-6">
-                    <div id="post" class="container p-3 my-3 border-s">
+                    <div id="post" class="container p-3 my-3 border-s" style="word-break:break-all">
                         <article>
                             <header>
                                 <h1 class="post-title">{{ .Title }}</h1>
@@ -30,18 +30,20 @@
                         </article>
                     </div>
                     {{ if or (eq .Section "notebook") (eq .Section "blog") }}
-                    <div class="container p-5 my-5 border-s">
-                        {{ with .PrevInSection }}
-                        <li> 下一篇 
-                            <a href="{{ .Permalink }}">{{ .Title }}</a> 
-                        </li>
+                        {{ if or .NextInSection .PrevInSection }}
+                        <div class="container p-5 my-5 border-s">
+                            {{ with .PrevInSection }}
+                            <li> 下一篇 
+                                <a href="{{ .Permalink }}">{{ .Title }}</a> 
+                            </li>
+                            {{ end }}
+                            {{ with .NextInSection }}
+                            <li> 上一篇 
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </li>
+                            {{ end }}
+                        </div>
                         {{ end }}
-                        {{ with .NextInSection }}
-                        <li> 上一篇 
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </li>
-                        {{ end }}
-                    </div>
                     {{ end }}
                 </div>
 

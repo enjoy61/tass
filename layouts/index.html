@@ -13,7 +13,7 @@
         <div class="container p-5 my-5 border-s">
             <h2> 最近发布 </h2>
             {{ $start := math.Counter }}
-            {{ $count := 10 }}
+            {{ $count := 20 }}
             {{ $format := "Mon, 2 Jan 2006 03:04 pm" }}
             {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook" }}
             <div>
@@ -30,7 +30,7 @@
         <div class="container p-5 my-5 border-s">        
             <h2> 最近更新 </h2>
             {{ $start := math.Counter }}
-            {{ $count := 10 }}
+            {{ $count := 20 }}
             {{ $format := "Mon, 2 Jan 2006 03:04 pm" }}
             {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "notebook" }}
             <div>

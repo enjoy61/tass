@@ -4,18 +4,29 @@
         {{ partial "head.html" . }}        
     </head>
 
-    <body class="content-s">
+    <body class="body-s">
         {{ partial "navbar.html" . }}
         
         <div class="container-fluid p-5">
         <!-- {{ with .Site.GetPage "/post" }}<a href="{{.Permalink}}">{{ .Title }}</a>{{ end }} -->
+           
             {{ range .Pages.ByPublishDate.Reverse }}
+           <!-- 
+            {{ $format := "02 Jan 2006" }} 
+           <div class="card" style="width: 50%">
+              <h2>{{ .Title }}</h2>
+              <h5>{{ .PublishDate | time.Format $format }}</h5>
+              <div class="fakeimg" style="height:200px;">图片</div>
+              <p>一些文本...</p>
+            </div> -->
+           
             <div>
-                <a href="{{.Permalink}}">{{.Title}}</a>
+                <a href="{{.Permalink}}" class="list-a">{{.Title}}</a>
             </div>
+       
             {{ end }}
         </div>
 
         {{ partial "footer.html" . }}
     </body>
-</html>
+</html> 

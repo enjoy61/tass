@@ -1,0 +1,44 @@
+{{ $year_format := "2006" }}
+{{ $month_format := "January" }}
+{{ $day_format := "_2" }}
+{{ $format := "Mon, 2 Jan 2006" }} 
+{{ $max := 10 }} 
+
+<div class="container p-5 my-5 border-s recent">
+    <h2>最近发布</h2>
+
+    {{ $last_year_val := "" }}
+    {{ $last_month_val := "" }}
+    {{ $last_day_val := "" }}
+
+    {{ range first $max (where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook") }}
+        {{ $current_target := .PublishDate }}
+        {{ $year_val := $current_target | time.Format $year_format }}
+        {{ $month_val := $current_target | time.Format $month_format }}
+        {{ $day_val := $current_target | time.Format $day_format }}
+
+        {{ if ne $last_year_val $year_val }}
+            {{ $last_year_val = $year_val }}
+            {{ $last_month_val = "" }}
+        {{ end }}
+
+        {{ if ne $last_month_val $month_val }}
+            {{ $last_month_val = $month_val }}
+            {{ $last_day_val = "" }}
+        {{ end }}
+
+        {{ if ne $last_day_val $day_val }}
+            <br>
+            <h5> {{ $current_target | time.Format $format }} </h5>
+
+            {{ $last_day_val = $day_val }}
+        {{ end }}
+
+        <h6>
+            {{ range after 2 .Ancestors.Reverse }}
+                {{ .LinkTitle }} > 
+            {{ end }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h6>
+    {{ end }}
+</div>

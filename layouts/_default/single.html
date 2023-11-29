@@ -2,36 +2,45 @@
 <html lang="zh">
 
     <head>
-        {{ partial "head.html" . }}        
+        {{ partial "head.html" . }}
     </head>
 
-    <body class="content-s">
+    <body class="body-s">
+        
+
         {{ partial "navbar.html" . }}
 
         <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col-md-3">
+                <div class="leftcolumn">
                     {{ if eq .Section "notebook" }}
                         {{ partial "offcanvas.html" . }}
                     {{ end }}
                 </div>    
 
-                <div class="col-md-6">
-                    <div id="post" class="container p-3 my-3 border-s" style="word-break:break-all">
+                <div class="middlecolumn">
+                    <div id="post" class="container p-3 my-3 content-s" style="word-break:break-all">
                         <article>
                             <header>
-                                <h1 class="post-title">{{ .Title }}</h1>
+                                <h1 class="post-title content-title-s">{{ .Title }}</h1>
                                 {{ if or (eq .Section "notebook") (eq .Section "blog") }}
                                     {{ $format := "02 Jan 2006" }}
                                     <p class="text-muted">发布于 {{ .PublishDate | time.Format $format }}, 最后更新于 {{ .Lastmod | time.Format $format }}</p>
-                                    {{ end }}
+                                {{ end }}
                             </header>
-                            {{.Content}}
+
+                            {{ if eq .Section "recent" }}
+                                {{ partial "recent.html" . }}
+                            {{ else }}
+                                <div class="content-title-s">
+                                {{ .Content }}
+                                <div>
+                            {{ end }}
                         </article>
                     </div>
                     {{ if or (eq .Section "notebook") (eq .Section "blog") }}
                         {{ if or .NextInSection .PrevInSection }}
-                        <div class="container p-5 my-5 border-s">
+                        <div class="container p-5 my-5 border-s content-title-s list-unstyled">
                             {{ with .PrevInSection }}
                             <li> 下一篇 
                                 <a href="{{ .Permalink }}">{{ .Title }}</a> 
@@ -48,10 +57,13 @@
                 </div>
 
                 {{ if or (eq .Section "notebook") (eq .Section "blog") }}
-                <div class="col-md-3 container-fluid p-3 my-3">
+                {{ if gt .WordCount 10 }}
+                <div class="rightcolumn container-fluid p-3 my-3 toc-s">
                     {{ partial "toc.html" . }}
                 </div>
                 {{ end }}
+                {{ end }}
+
             </div>
         </div>
 

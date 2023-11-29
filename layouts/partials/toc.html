@@ -1,8 +1,12 @@
-{{ if gt .WordCount 10 }}
-<aside>
+{{ $built := resources.Get "js/format-toc.js" | js.Build "main33.js" }}
+{{ $built2 := resources.Get "js/toc.js" | js.Build "main34.js" }}
+{{ with and $built $built2 }}
+
+<!--
     <header>
-    <h2>文章目录</h2>
+        <h3>文章目录</h3>
     </header>
-    {{ .TableOfContents }}
-</aside>
+-->    
+    <script src="{{ $built.RelPermalink }}"></script>
+    <script src="{{ $built2.RelPermalink }}"></script>
 {{ end }}

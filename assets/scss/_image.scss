@@ -3,3 +3,29 @@ img {
 	max-width: 100%;
     height: auto;
 }
+
+
+.imageList {
+  height: 158px;
+  overflow: hidden;
+
+  // 边框 + 固定
+  perspective: 2000px;
+  
+  ul li {
+    width: 200px;
+    padding: 2px 2px;
+
+    // fixed或absolute, li不自动换行
+    position: fixed;
+
+    // li显示在一行
+    display: inline-block;
+
+    // 去除小黑点
+    // overflow: hidden;
+
+    // 四个角圆润
+    // border-radius: 5px;
+  }
+}

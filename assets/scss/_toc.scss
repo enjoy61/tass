@@ -1,0 +1,74 @@
+div.toc-s {
+	color: $toc-color;
+
+	a {
+		color: $toc-color;
+	 	text-decoration: none;
+	}
+
+	li.active {
+		a, button {
+			color: $dark-tango-blue; 
+			font-weight: 800;
+		    transition: all .25s ease-in-out
+			}
+		}
+	a:hover {
+		color: $toc-hover;
+	}
+}
+
+div.toc-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
+  padding: 20px;
+  height: 500px;
+  background-color: $toc-bg;
+  border: 2px solid $border-color;
+  border-radius: 3px;
+  overflow-y: auto;
+}
+
+.toc-btn-toggle
+{
+    display: inline-flex;
+    align-items: center;
+    padding: .25rem .5rem;
+    font-weight: 600;
+    font-size: 18px;
+    color: $offcanvas-color;
+    background-color: transparent;
+    border: 0;
+    word-wrap: break-word;
+}
+
+.toc-btn-toggle:hover, .btn-toggle:focus
+{
+    color: $offcanvas-hover;
+    // background-color:#d2f4ea
+}
+
+// 文件夹打开关闭图片
+.toc-btn-toggle::after
+{
+    width: 1.25em;
+    line-height: 1.25em;
+
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#feffff" d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/></svg>');
+
+    transition: transform .35s ease;
+    transform-origin: 50% 50%;
+    transform: rotate(270deg);
+}
+
+// 点过的全变色
+.toc-btn-toggle[aria-expanded="true"]
+{
+//    color: orange;
+}
+
+.toc-btn-toggle[aria-expanded="true"]::after
+{
+    transform: rotate(180deg);
+}

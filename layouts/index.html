@@ -5,46 +5,77 @@
         {{ partial "head.html" . }}        
     </head>
 
-    <body class="content-s">
+<!--
+    <div class="header">
+      <h1>六一的部落格</h1>
+      <br>
+      <h4>关关难过关关过，前路漫漫亦灿灿。</h5>
+    </div>
+-->
+    <body class="body-s">
         <!-- 导航栏 -->
         {{ partial "navbar.html" . }}
 
+<!--
+        <br><br><br>
+        <div align="center">
+            <h1 style="font-size:90px">溯洄从之， 道阻且长。</h1>
+        </div>
+        <br><br>
+        <div align="center">
+            <a href="/recent/published/" class="btn btn-primary btn-lg" role="button" align="center">Enter</a>
+        </div>
+        <br><br><br>
+
+        {{ with resources.Get "js/home-page-pic.js" | js.Build "main.js" }}
+        <script src="{{ .RelPermalink }}"></script>
+        {{ end }}
+
+
+<section class="section container-fluid mt-n3 pb-3">
+  <div class="row justify-content-center">
+    <div class="imageList" id="scrollpic1">
+      <ul>
+        <li><img src="index/1.jpg" /></li>
+        <li><img src="index/2.jpg" /></li>
+        <li><img src="index/3.jpg" /></li>
+        <li><img src="index/4.jpg" /></li>
+        <li><img src="index/5.jpg" /></li>
+        <li><img src="index/6.jpg" /></li>
+        <li><img src="index/7.jpg" /></li>
+        <li><img src="index/8.jpg" /></li>
+        <li><img src="index/9.jpg" /></li>
+        <li><img src="index/10.jpg" /></li>
+        <li><img src="index/11.jpg" /></li>
+        <li><img src="index/12.jpg" /></li>
+      </ul>
+    </div>
+    <div class="imageList" id="scrollpic2">
+      <ul>
+        <li><img src="index/13.jpg" /></li>
+        <li><img src="index/14.jpg" /></li>
+        <li><img src="index/15.jpg" /></li>
+        <li><img src="index/16.jpg" /></li>
+        <li><img src="index/17.jpg" /></li>
+        <li><img src="index/18.jpg" /></li>
+        <li><img src="index/19.jpg" /></li>
+        <li><img src="index/20.jpg" /></li>
+        <li><img src="index/21.jpg" /></li>
+        <li><img src="index/22.jpg" /></li>
+        <li><img src="index/23.jpg" /></li>
+        <li><img src="index/24.jpg" /></li>
+      </ul>
+    </div>
+  </div>
+</section>
+-->
+    <br>
         <!-- 更新列表 -->
-        <div class="container p-5 my-5 border-s">
-            <h2> 最近发布 </h2>
-            {{ $start := math.Counter }}
-            {{ $count := 20 }}
-            {{ $format := "Mon, 2 Jan 2006 03:04 pm" }}
-            {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook" }}
-            <div>
-                <a href="{{ .Permalink }}">{{ .PublishDate | time.Format $format }} - {{ .Title }}</a>
-            </div>
-                {{ $ans := sub math.Counter $start }}
-                {{ $ans := int $ans }}
-                {{ if ge $ans $count }}
-                    {{ break }}
-                {{ end }}
-            {{ end }}
-        </div>
 
-        <div class="container p-5 my-5 border-s">        
-            <h2> 最近更新 </h2>
-            {{ $start := math.Counter }}
-            {{ $count := 20 }}
-            {{ $format := "Mon, 2 Jan 2006 03:04 pm" }}
-            {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "notebook" }}
-            <div>
-                <a href="{{ .Permalink }}">{{ .Lastmod | time.Format $format }} - {{ .Title }}</a>
-            </div>
+        {{ partial "recent-published.html" . }}
 
-                {{ $ans := sub math.Counter $start }}
-                {{ $ans := int $ans }}
-                {{ if ge $ans $count }}
-                    {{ break }}
-                {{ end }}
-            {{ end }}
-        </div>
-
+        {{ partial "recent-updated.html" . }}
+        
         {{ partial "footer.html" . }}
 
     </body>

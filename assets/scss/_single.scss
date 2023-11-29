@@ -1,0 +1,27 @@
+.body-s {
+	background-color: $content-bg;
+}
+
+.cotent-s {
+	color: $content-color;
+	background-color: $content-bg;
+}
+
+.content-s a {
+	color: $index-a-color;
+	text-decoration: none;
+}
+
+.content-title-s {
+	color: $content-color;
+
+	a {
+		color: $index-a-color;
+		text-decoration: none;
+	}
+}
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}

@@ -1,27 +1,33 @@
-{{ $tangoNavbarBg := "#E6E6E6" }}
-
-<div class="container p-5">
-    <nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-s">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">六一的部落格</a>
-            <ul class="navbar-nav me-auto">
-                {{ range .Site.Menus.main }} 
+<nav class="navbar navbar-expand-sm topnav navbar-s">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">六一的部落格</a>
+        <ul class="navbar-nav me-auto">
+            {{ range .Site.Menus.main }} 
                 {{ if .HasChildren }}
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-bs-toggle="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle-s" id="{{ .Identifier }}" data-bs-toggle="dropdown">
                         {{ .Name }}
                     </a>    
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu nav-dropdown-s">
                         {{ range .Children }}
                         <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
                         {{ end }}
                     </div>
                 </li>    
                 {{ else }}
-                 <li class="nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+                 <li class="nav-item"><a class="nav-link" href="{{ .URL }}" id="{{ .Identifier }}">{{ .Name }}</a></li>
                 {{ end }} 
-                {{ end }}
-            </ul>
-        </div>
-    </nav>
-</div>
+            {{ end }}
+        </ul>
+        <!--
+        <span class="sun-btn">&#x2600;</span>
+
+        <span class="moon-btn">&#x263D;</span>
+    -->
+    </div>
+</nav>
+
+{{ $built := resources.Get "js/navbar.js" | js.Build "main-navbar.js" }}
+{{ with $built }}
+    <script src="{{ $built.RelPermalink }}"></script>
+{{ end }}

@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: Arial;
+  //padding: 10px;
+//  background: #f1f1f1;
+}
+ 
+/* 头部标题 */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+ 
+.header h1 {
+  font-size: 50px;
+}
+ 
+/* 导航条 */
+.topnav {
+//  overflow: hidden; // 下拉框
+}
+ 
+/* 导航条链接 */
+.topnav a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+ 
+/* 链接颜色修改 */
+.topnav a:hover {
+  color: $nav-hover;
+}
+
+/* 创建3列 */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 20%;
+//  background-color: #f1f1f1;
+}
+ 
+.middlecolumn {
+  float: left;
+  width: 60%;
+}
+
+/* 右侧栏 */
+.rightcolumn {
+  float: left;
+  width: 20%;
+//  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+ 
+/* 列后面清除浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+/* 底部 */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: $footer-bg;
+  color: $footer-color;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: $footer-a-color;
+  // text-decoration: none;
+}
+ 
+/* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn, .middlecolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+ 
+/* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}

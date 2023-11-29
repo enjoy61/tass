@@ -1,0 +1,73 @@
+{{ $year_format := "2006" }}
+{{ $month_format := "January" }}
+{{ $day_format := "_2" }}
+{{ $last_year_val := "" }}
+{{ $last_month_val := "" }}
+{{ $last_day_val := "" }}
+{{ $format := "Mon, 2 Jan 2006" }}      
+
+<div class="recent">
+	{{ if eq .Name "最近发布" }}
+	    {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook" }}
+	        {{ $current_target := .PublishDate }}
+	        {{ $year_val := $current_target | time.Format $year_format }}
+	        {{ $month_val := $current_target | time.Format $month_format }}
+	        {{ $day_val := $current_target | time.Format $day_format }}
+
+	        {{ if ne $last_year_val $year_val }}
+	            {{ $last_year_val = $year_val }}
+	            {{ $last_month_val = "" }}
+	        {{ end }}
+
+	        {{ if ne $last_month_val $month_val }}
+	            {{ $last_month_val = $month_val }}
+	            {{ $last_day_val = "" }}
+	        {{ end }}
+
+	        {{ if ne $last_day_val $day_val }}
+	            <br>
+	            <h5> {{ $current_target | time.Format $format }} </h5>
+
+	            {{ $last_day_val = $day_val }}
+	        {{ end }}
+
+	        <h6>
+	            {{ range after 2 .Ancestors.Reverse }}
+	                {{ .LinkTitle }} > 
+	            {{ end }}
+	            <a href="{{ .Permalink }}">{{ .Title }}</a>
+	        </h6>
+	    {{ end }}
+	{{ else if eq .Name "最近更新" }}
+	    {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "notebook" }}
+	        {{ $current_target := .Lastmod }}
+	        {{ $year_val := $current_target | time.Format $year_format }}
+	        {{ $month_val := $current_target | time.Format $month_format }}
+	        {{ $day_val := $current_target | time.Format $day_format }}
+
+	        {{ if ne $last_year_val $year_val }}
+	            {{ $last_year_val = $year_val }}
+	            {{ $last_month_val = "" }}
+	        {{ end }}
+
+	        {{ if ne $last_month_val $month_val }}
+	            {{ $last_month_val = $month_val }}
+	            {{ $last_day_val = "" }}
+	        {{ end }}
+
+	        {{ if ne $last_day_val $day_val }}
+	            <br>
+	            <h5> {{ $current_target | time.Format $format }} </h5>
+
+	            {{ $last_day_val = $day_val }}
+	        {{ end }}
+
+	        <h6>
+	            {{ range after 2 .Ancestors.Reverse }}
+	                {{ .LinkTitle }} > 
+	            {{ end }}
+	            <a href="{{ .Permalink }}">{{ .Title }}</a>
+	        </h6>
+	    {{ end }}
+	{{ end }}
+</div>

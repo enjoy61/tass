@@ -47,7 +47,7 @@ main
         {{ range .Sections }}
         <li class="mb-1 my-1 ms-3">
             <button class="btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
-                {{ .Title }}
+                &nbsp {{ .Title }}
             </button>
             <div class="collapse" id="section-{{ md5 .Title }}" data-bs-parent="#offcanvas-st">
                 <!-- small会逐渐减小字体; btn会有框 -->
@@ -56,7 +56,7 @@ main
                     {{ if .IsNode }}
                     <li class="mb-1 my-1 ms-3">
                         <button class="btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
-                            {{ .Title }}
+                            &nbsp {{ .Title }}
                         </button>
 
                         <div class="collapse" id="section-{{ md5 .Title }}">
@@ -66,19 +66,19 @@ main
                                 {{ if .IsNode }}
                                 <li class="mb-1 my-1 ms-3">
                                     <button class="btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
-                                        {{ .Title }}
+                                        &nbsp {{ .Title }}
                                     </button>
 
                                     <div class="collapse" id="section-{{ md5 .Title }}">
                                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
                                             {{ range .Pages }}
-                                            <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline"><span class="d-inline-block bg-warning rounded-circle" style="width: .4em; height: .4em; flex-shrink: 0; "></span> &nbsp {{ .Title }} </a></li>
+                                            <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item"> &nbsp {{ .Title }} </a></li>
                                             {{ end }}    
                                         </ul>
                                     </div> 
                                 </li>
                                 {{ else }}
-                                <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline"><span class="d-inline-block bg-primary rounded-circle" style="width: .4em; height: .4em; flex-shrink: 0; "></span> &nbsp {{ .Title }} </a></li>
+                                <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item"> &nbsp {{ .Title }} </a></li>
                                 {{ end }} 
 
                                 {{ end }}    
@@ -86,7 +86,7 @@ main
                         </div> 
                     </li>
                     {{ else }}
-                    <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline"><span class="d-inline-block bg-success rounded-circle" style="width: .4em; height: .4em; flex-shrink: 0; "></span> &nbsp {{ .Title}} </a></li>
+                    <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item"> &nbsp {{ .Title}} </a></li>
                     {{ end }} 
                     {{ end }}    
                 </ul>  

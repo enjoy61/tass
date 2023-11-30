@@ -9,7 +9,7 @@ function format_span(circle_color)
 {
     temp = "<span ";
     temp += format_attribute("class", "d-inline-block rounded-circle " + circle_color);
-    temp += format_attribute("style", "width: .5em; height: .5em; flex-shrink: 0 ");
+    temp += format_attribute("style", "width: .5em; height: .5em; flex-shrink: 0; ");
     temp += "></span>";
 
     return temp;

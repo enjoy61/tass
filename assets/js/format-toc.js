@@ -214,6 +214,7 @@ function format_toc(headings)
         {
             // toc += format_li(id);
             toc += format_li(id, descript, "bg-primary") + "\n";
+            // console.log(tag_next, tag, descript);
             if (tag_next < tag)
             {
                 for (j = 0; j < tag - tag_next; ++j)
@@ -250,8 +251,16 @@ function add_toc()
     const headings = Array.apply(null, document.querySelectorAll('h2[id], h3[id], h4[id]'))
                          .filter(function(value, index, arr) { return arr[index].querySelector('.anchor'); });
 
+    if (headings.length < 1)
+    {
+        return;
+    }
     const toc = format_toc(headings);
     document.write(toc);
+
+    const article = document.querySelector('.content-remove');
+    //    console.log("#");
+    article.remove();
 }
 
 add_toc();

@@ -3,46 +3,49 @@ const url = window.location.pathname;
 
 const active_article = document.querySelector(`.offcanvas-s a[href="${url}"]`);
 
-active_article.classList.add('active');
-// console.log(active_article);
-
-var child = active_article;
-while (child.tagName !== "BODY")
+if (active_article)
 {
-    let parent = child.parentNode; // 获取父节点
+    active_article.classList.add('active');
+    // console.log(active_article);
 
-    if (!parent) break;
-
-    if (parent.tagName == "DIV" && parent.hasAttributes())
+    var child = active_article;
+    while (child.tagName !== "BODY")
     {
-        const id = parent.getAttribute("id");
-        if (id && id.startsWith("section"))
+        let parent = child.parentNode; // 获取父节点
+
+        if (!parent) break;
+
+        if (parent.tagName == "DIV" && parent.hasAttributes())
         {
-            parent.classList.add("show");
-            parent.classList.add("active");
-
-            let up = parent.parentNode;
-            if (up)
+            const id = parent.getAttribute("id");
+            if (id && id.startsWith("section"))
             {
-                // console.log("parent", up);
-                for (i = 0; i < up.children.length; ++i)
+                parent.classList.add("show");
+                parent.classList.add("active");
+
+                let up = parent.parentNode;
+                if (up)
                 {
-                    let brother = up.children[i];
-                    if (brother.tagName == "BUTTON")
+                    // console.log("parent", up);
+                    for (i = 0; i < up.children.length; ++i)
                     {
-                        // console.log("button", brother);
+                        let brother = up.children[i];
+                        if (brother.tagName == "BUTTON")
+                        {
+                            // console.log("button", brother);
 
-                        brother.setAttribute("aria-expanded", "true");
-                        brother.classList.add("active");
-                        // console.log("button", brother);
+                            brother.setAttribute("aria-expanded", "true");
+                            brother.classList.add("active");
+                            // console.log("button", brother);
 
-                        break;
+                            break;
+                        }
                     }
                 }
-            }
 
-            // console.log(parent);
+                // console.log(parent);
+            }
         }
+        child = parent;
     }
-    child = parent;
 }

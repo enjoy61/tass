@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh">
     <head>
-        {{ partial "head.html" . }}        
+        {{ partial "head.html" . }}
+        {{ partial "header.html" . }}
     </head>
 
-    <body class="body-s">
-        {{ partial "navbar.html" . }}
-        
-        <div class="container-fluid p-5">
-        <!-- {{ with .Site.GetPage "/post" }}<a href="{{.Permalink}}">{{ .Title }}</a>{{ end }} -->
-           
-            {{ range .Pages.ByPublishDate.Reverse }}
-           <!-- 
-            {{ $format := "02 Jan 2006" }} 
-           <div class="card" style="width: 50%">
-              <h2>{{ .Title }}</h2>
-              <h5>{{ .PublishDate | time.Format $format }}</h5>
-              <div class="fakeimg" style="height:200px;">图片</div>
-              <p>一些文本...</p>
-            </div> -->
-           
-            <div>
-                <a href="{{.Permalink}}" class="list-a">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#eaeaea" d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"/></svg>
-                     &nbsp {{ .Title }}
-                </a>
+    <body class="body-panel">
+        <div class="row">
+            <div class="three-four-three-three"></div>
+            <div class="three-four-three-four">
+                <article>
+                    {{ range .Pages.ByPublishDate.Reverse }}
+                    <div>
+                        <a href="{{ .Permalink }}" style="font-size: 20px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"/></svg>
+                             &nbsp {{ .Title }}
+                        </a>
+                    </div>
+                    {{ end }}
+                </article>
             </div>
-       
-            {{ end }}
+            <div class="three-four-three-three"></div>
         </div>
-
-        {{ partial "footer.html" . }}
+        <br><br>
     </body>
+
+    {{ partial "footer.html" . }}
 </html> 

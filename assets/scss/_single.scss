@@ -1,48 +1,126 @@
-.body-s {
-	background-color: $content-bg;
+.div-recent {
+		a {
+				color: $primary;
+				text-decoration: none;
+		}
+
+		h3 {
+				padding-bottom: 10px;
+		}
+
+		h3::before {
+				width: 1.25em;
+				line-height: 0;
+				content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="21" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>');
+				transition: transform .35s ease;
+				transform-origin: .5em 50%;
+		}
 }
 
-.cotent-s {
-	color: $content-color;
-	background-color: $content-bg;
+// 1:8:1, 只有正文
+.three-four-three-three {
+		float: left;
+		width: 30%;
 }
 
-.content-s a {
-	color: $index-a-color;
-	text-decoration: none;
+.three-four-three-four {
+		float: left;
+		width: 40%;
 }
 
-.content-title-s {
-	color: $content-color;
-
-	a {
-		color: $index-a-color;
-		text-decoration: none;
-	}
+/* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+@media screen and (max-width: 800px) {
+		.three-four-three-three {
+				width: 0;
+				padding: 0;
+		}
+		.one-eight-one-eight {
+				width: 100%;
+				padding: 0;
+		}
 }
 
-/*
-h1::before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#941100" d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>');
+// 2:6:2, 只有正文
+.two-six-two-two {
+		float: left;
+		width: 20%;
 }
 
-h2::before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#008f51" d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>');
+.two-six-two-six {
+		float: left;
+		width: 60%;
 }
 
-h3::before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#0096ff" d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>');
+@media screen and (max-width: 800px) {
+		.two-six-two-two {
+				width: 0;
+				padding: 0;
+		}
+		.two-six-two-six {
+				width: 100%;
+				padding: 0;
+		}
 }
 
-h4::before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#000000" d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>');
+// 2:8, 左侧为文章目录和导航， 右边是正文
+.two-eight-two {
+		float: left;
+		width: 20%;
+		// 	margin-right: 20px;
 }
 
-h5::before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#935100" d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>');
+.two-eight-eight {
+		float: left;
+		width: 78%;
 }
 
-h6::before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#521b92" d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>');
+/* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+@media screen and (max-width: 800px) {
+		.two-eight-two, .two-eight-eight {
+				width: 100%;
+				padding: 0;
+		}
 }
-*/
+
+/* 列后面清除浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+.article-date {
+		color: $whole-color;
+}
+
+.content-remove {
+		display: none;
+}
+
+.page-nav {
+		a {
+				color: $primary;
+				text-decoration: none;
+		}
+}
+
+.card-panel {
+		border: 1px solid $border-color;
+		color: $whole-color;
+		background: $whole-bg;
+
+		a {
+			color: $whole-color;
+		}
+
+		a.active {
+			color: $primary;
+		}
+}
+
+div.card-panel-sticky {
+	  position: -webkit-sticky;
+	  position: sticky;
+  	top: 5vh;
+	  overflow-y: auto;
+}

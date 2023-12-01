@@ -6,7 +6,7 @@
 {{ $last_day_val := "" }}
 {{ $format := "Mon, 2 Jan 2006" }}      
 
-<div class="recent">
+<div class="div-recent">
 	{{ if eq .Name "最近发布" }}
 	    {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook" }}
 	        {{ $current_target := .PublishDate }}
@@ -26,15 +26,16 @@
 
 	        {{ if ne $last_day_val $day_val }}
 	            <br>
-	            <h5> {{ $current_target | time.Format $format }} </h5>
+	            
+	            <h3> &thinsp; {{ $current_target | time.Format $format }} </h3>
 
 	            {{ $last_day_val = $day_val }}
 	        {{ end }}
 
-	        <h6>
+	        <h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 	            {{ range after 2 .Ancestors.Reverse }}
 	                {{ .LinkTitle }}
-	                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#eaeaea" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+	                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
 	            {{ end }}
 	            <a href="{{ .Permalink }}">{{ .Title }}</a>
 	        </h6>
@@ -58,15 +59,15 @@
 
 	        {{ if ne $last_day_val $day_val }}
 	            <br>
-	            <h5> {{ $current_target | time.Format $format }} </h5>
+	            <h3> &thinsp; {{ $current_target | time.Format $format }} </h3>
 
 	            {{ $last_day_val = $day_val }}
 	        {{ end }}
 
-	        <h6>
+	        <h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 	            {{ range after 2 .Ancestors.Reverse }}
 	                {{ .LinkTitle }}
-	                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#eaeaea" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> 
+	                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> 
 	            {{ end }}
 	            <a href="{{ .Permalink }}">{{ .Title }}</a>
 	        </h6>

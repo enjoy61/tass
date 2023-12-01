@@ -1,0 +1,31 @@
+<ul class="nav nav-right justify-content-end">
+    {{ range .Site.Menus.main }} 
+        {{ if .HasChildren }}
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-right-toggle" id="{{ .Identifier }}" data-bs-toggle="dropdown">
+                {{ .Name }}
+            </a>    
+            <ul class="dropdown-menu dropdown-menu-right">
+                {{ range .Children }}
+                <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </li>    
+        {{ else }}
+         <li class="nav-item"><a class="nav-link" href="{{ .URL }}" id="{{ .Identifier }}">{{ .Name }}</a></li>
+        {{ end }} 
+    {{ end }}
+</ul>
+    
+
+<!--
+<span class="sun-btn">&#x2600;</span>
+
+<span class="moon-btn">&#x263D;</span>
+-->
+    
+
+{{ $built := resources.Get "js/navbar.js" | js.Build "main-navbar-right.js" }}
+{{ with $built }}
+    <script src="{{ $built.RelPermalink }}"></script>
+{{ end }}

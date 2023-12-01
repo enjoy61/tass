@@ -1,0 +1,16 @@
+.footer {
+	background: $footer-bg;
+	padding: 20px;
+	text-align: center;
+
+	a {
+		color: $whole-color;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	a:hover {;
+		color: $whole-hover;
+	}
+
+}

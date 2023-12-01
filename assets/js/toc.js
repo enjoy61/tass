@@ -16,20 +16,20 @@ function refreshHighlight()
         if (HeadingFlag[i])
         {
             ++HeadingCnt;
-            document.querySelector(`.toc-s li[headingIdx="${i}"]`).classList.add('active');
+            document.querySelector(`.toc-panel li[headingIdx="${i}"]`).classList.add('active');
         }
         else
         {
-            document.querySelector(`.toc-s li[headingIdx="${i}"]`).classList.remove('active');
+            document.querySelector(`.toc-panel li[headingIdx="${i}"]`).classList.remove('active');
         }
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const toc = document.querySelector('.toc-s');
+    const toc = document.querySelector('.toc-panel');
     if (!toc)
     {
-        console.log("toc is null");
+        console.log("toc is null", toc);
         return;
     }
 

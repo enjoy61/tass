@@ -1,14 +1,30 @@
-.recent {
-	color: $content-color;
+.index-panel {
+	a {
+		text-decoration: none;
+		color: $primary;
+	}
+
+	a:hover {
+		color: $whole-hover;
+	}
+
+	border: 1px solid $border-color;
+	border-radius: 2px;
+}	
+
+.body-panel {
+	color: $whole-color;
+	background: $whole-bg;
 }
 
-.recent a {
-	color: $index-a-color;
-	text-decoration: none;
-}
 
 .list-a
 {
 	color: $list-a-color;
 	text-decoration: none;
+
+
 }
+.list-a:hover {
+		color: $dark-tango-red;
+	}

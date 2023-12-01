@@ -1,0 +1,35 @@
+.header h1 {
+	font-size: 50px;
+	color: $blog-title-color;
+	text-shadow: 0.02em 0.02em $whole-color;
+}
+
+.header h3 {
+	font-size: 30px;
+	text-shadow: 0.02em 0.02em $whole-color;
+}
+
+.header {
+	position: relative;
+	text-align: center;	
+	color: $one-sentence-color;
+
+//  padding: 30px;
+
+    a {
+    	color: $whole-color;
+    }
+}
+
+.header-img {
+	width: 100%;
+	height: auto;
+	opacity: 0.9;
+}
+
+.div-title {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    margin-top: -9px;
+}

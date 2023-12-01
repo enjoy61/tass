@@ -1,3 +1,5 @@
+
+
 .navbar-s {
 	background-color: $navbar-bg;
 	border-bottom: 1px solid $border-color;
@@ -28,16 +30,25 @@
 	}
 }
 
-/* 导航条链接 */
-.topnav a {
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.dropdown-toggle-s
+{
+    align-items: center;
+    padding: .25rem .5rem;
+    font-size: 17px;
+    color: $navbar-color;
+    background-color: transparent;
+    border: 0;
 }
- 
-/* 链接颜色修改 */
+
+// 文件夹打开关闭图片
+.dropdown-toggle-s::after
+{
+    width: 1.25em;
+    line-height: 0;
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#c0c0c0" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
+}
 
 .topnav a:focus {
   color: $navbar-color;
@@ -47,22 +58,8 @@
   color: $nav-hover;
 }
 
-.dropdown-toggle-s
-{
-    align-items:center;
-    padding:.25rem .5rem;
-    font-size: 17px;
-    color: $navbar-color;
-    background-color:transparent;
-    border:0;
+/* 导航条 */
+.topnav {
+//  overflow: hidden; // 下拉框
 }
 
-// 文件夹打开关闭图片
-.dropdown-toggle-s::after
-{
-    width: 1.25em;
-    line-height: 0;
-    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#feffff" d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>');
-    transition: transform .35s ease;
-    transform-origin: .5em 50%;
-}

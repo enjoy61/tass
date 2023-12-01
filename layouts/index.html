@@ -2,20 +2,11 @@
 <html lang="zh">
 
     <head>
-        {{ partial "head.html" . }}        
+        {{ partial "head.html" . }}
+        {{ partial "header.html" . }} 
     </head>
 
-<!--
-    <div class="header">
-      <h1>六一的部落格</h1>
-      <br>
-      <h4>关关难过关关过，前路漫漫亦灿灿。</h5>
-    </div>
--->
-    <body class="body-s">
-        <!-- 导航栏 -->
-        {{ partial "navbar.html" . }}
-
+    <body class="body-panel">
 <!--
         <br><br><br>
         <div align="center">
@@ -72,11 +63,8 @@
     <br>
         <!-- 更新列表 -->
 
-        {{ partial "recent-published.html" . }}
+        {{ partial "index-recent.html" . }}
 
-        {{ partial "recent-updated.html" . }}
-        
         {{ partial "footer.html" . }}
-
     </body>
 </html>

@@ -30,7 +30,9 @@
                         <header>
                             <h1>{{ .Title }}</h1>
                         </header>
+                    <div class="single-panel">
                     {{ .Content }}
+                    </div>    
                     </article>
                 </div>
                 <div class="three-four-three-three"></div>
@@ -50,9 +52,11 @@
                                     </h1>
                                 </header>
                                 <p class="article-date">发布于 {{ .PublishDate | time.Format $format }}, 最后更新于 {{ .Lastmod | time.Format $format }}</p>    
+                                <div class="single-panel">
                                 {{ .Content }}
+                                </div> 
                                 {{ if or .NextInSection .PrevInSection }}
-                                <div class="container p-5 my-5 border-s list-unstyled">
+                                <div class="container p-5 my-5 border-s list-unstyled single-panel">
                                     {{ with .PrevInSection }}
                                     <li> 下一篇 
                                         <a href="{{ .Permalink }}">{{ .Title }}</a> 
@@ -127,9 +131,11 @@
                             </h1>
                         </header>
                         <p class="article-date">发布于 {{ .PublishDate | time.Format $format }}, 最后更新于 {{ .Lastmod | time.Format $format }}</p>
+                        <div class="single-panel">
                         {{ .Content }}
+                        </div> 
                         {{ if or .NextInSection .PrevInSection }}
-                        <div class="container p-5 my-5 border-s list-unstyled">
+                        <div class="container p-5 my-5 border-s list-unstyled single-panel">
                             {{ with .PrevInSection }}
                             <li> 下一篇 
                                 <a href="{{ .Permalink }}">{{ .Title }}</a> 
@@ -152,7 +158,10 @@
         </div>
 
         {{ if or (eq .Section "notebook") (eq .Section "blog") }}
+        <div class="single-panel">
         {{ partial "comment.html" . }}
+        </div> 
+        
         {{ end }}
 
     </body>

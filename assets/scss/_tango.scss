@@ -8,18 +8,16 @@ $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
 
-$tango-bg: #EEEEEC;
 $tango-blue: #2A4A83;
 $tango-headbar-blue: #46629D;
-$tango-purple: #563863;
+
 $tango-red: #961D13;
-$tango-orange: #A7551F;
+
 $tango-green: #47663C;
 $tango-light-grey: #E5E6E7;
 $tango-primary: $tango-blue;
 
-$tango-border: #ced4da;
-$tango-footer-bg: #E6E6E6;
+
 $tango-toc-line: #8F918D;
 $tango-header-bar: $tango-headbar-blue;
 $tango-table-th-bg: $gray-400;
@@ -38,45 +36,30 @@ $tango-scrollbar-hover: $gray-400;
 $tango-scrollbar-hover-bg: $tango-bg;
 $tango-block: #D3D3D3;
 
-$dark-tango-color: #1d2d35;;
-$dark-tango-bg: #2F3436;
-$dark-tango-headbar-bg: #222526;
-$dark-tango-green: #86C742;
+
+
+
+
 $dark-tango-light-green: #BEF080;
-$dark-tango-yellow: #F9E86B;
-$dark-tango-blue: #97C3FA;
-$dark-tango-red: #E75852;
+
+
+
 $dark-tango-pink: #E1B5E0;
-$dark-tango-grey: #979898;
-$dark-tango-white: #EEEEEC;
+
+
 $dark-tango-grey-yellow: #BFBE3D;
 $dark-tango-primary: $dark-tango-green;
-$dark-tango-headbar: #317700;
+
 $dark-tango-table-head: #4E5253;
 $dark-tango-table-data: #373B3C;
 $dark-tango-table-border: #2D2826;
 $dark-tango-block: #767B7E;
-$dark-tango-hover: $dark-tango-red;
-$dark-tango-border: #4C4D4D;
+$dark-tango-blue: #97C3FA;
 $dark-tango-search: #4C4D4D;
-$dark-tango-dropdown-bg: #4C4D4D;
+
 $dark-tango-dropdown-hover: $dark-tango-bg;
 
 
-// $whole-bg: $dark-tango-bg;
-// $whole-color: $dark-tango-white;
-// primary: $tango-orange;
-// $border-color: $dark-tango-border;
-
-$whole-hover: $tango-purple;
-$whole-bg: $tango-bg;
-$whole-color: $dark-tango-color;
-
-$primary: $tango-orange;
-$border-color: $tango-border;
-
-$blog-title-color: $dark-tango-white;
-$one-sentence-color: $dark-tango-yellow;
 
 $index-a: $primary;
 $footer-a: $tango-purple;
@@ -85,7 +68,7 @@ $footer-a: $tango-purple;
 $content-bg: $whole-bg;
 $content-color: $whole-color;
 
-$footer-bg: $tango-footer-bg;
+
 $footer-color: $whole-color;
 $footer-a-color: $dark-tango-green;
 
@@ -101,7 +84,7 @@ $navbar-color: $dark-tango-white;
 $nav-hover: $dark-tango-red;
 $nav-active: $dark-tango-pink;
 
-$dropdown-bg: $dark-tango-dropdown-bg;
+
 $dropdown-hover: $dark-tango-bg;
 
 $header-a-color: $dark-tango-white;
@@ -109,7 +92,7 @@ $header-sentence-color: $dark-tango-yellow;
 
 $index-a-color: $dark-tango-green;
 
-$list-a-color: $dark-tango-blue;
+
 
 
 
@@ -121,24 +104,3 @@ $toc-bg: $dark-tango-headbar-bg;
 $table-hover-bg: $tango-table-td-bg;
 $table-even-bg: $dark-tango-table-data;
 $table-th-bg: $dark-tango-table-head;
-
-
-/* light
-$navbar-bg: $tango-header-bg;
-$offcanvas-bg: $tango-bg;
-$border-color: $tango-border;
-*/
-
-.body-panel {
-	color: $whole-color;
-	background: $whole-bg;
-
-	a {
-		color: $primary;
-		text-decoration: none;
-	}
-
-	a:hover {
-		color: $whole-hover;
-	}
-}

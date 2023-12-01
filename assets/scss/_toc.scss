@@ -14,9 +14,25 @@ div.toc-panel {
 			color: $primary;
 			font-weight: 800;
 		    transition: all .25s ease-in-out;
-			}
 		}
-	
+	}
+}
+
+[dark-mode] div.toc-panel {
+    a {
+        color: $dark-whole-color;
+    }
+
+    a:hover {
+        color: $dark-whole-hover;
+    }
+
+
+    li.active {
+        a, button {
+            color: $dark-primary;
+        }
+    }
 }
 
 div.toc-sticky {
@@ -26,6 +42,7 @@ div.toc-sticky {
 
 .toc-btn-toggle
 {
+    background: transparent;
     display: inline-flex;
     align-items: center;
     padding: .25rem .5rem;
@@ -38,7 +55,11 @@ div.toc-sticky {
 .toc-btn-toggle:hover, .btn-toggle:focus
 {
     color: $primary;
-    background-color: transparent;
+}
+
+[dark-mode] .toc-btn-toggle:hover, .btn-toggle:focus
+{
+    color: $dark-primary;
 }
 
 // 文件夹打开关闭图片
@@ -54,6 +75,17 @@ div.toc-sticky {
     transform: rotate(270deg);
 }
 
+[dark-mode] .toc-btn-toggle::after
+{
+    width: 1.25em;
+    line-height: 1.25em;
+
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#eaeaea" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM377 271c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-87-87-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 167c9.4-9.4 24.6-9.4 33.9 0L377 271z"/></svg>');
+
+    transition: transform .35s ease;
+    transform-origin: 50% 50%;
+    transform: rotate(270deg);
+}
 
 .toc-btn-toggle[aria-expanded="true"]::after
 {

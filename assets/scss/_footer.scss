@@ -1,0 +1,37 @@
+$tango-footer-bg: #E6E6E6;
+$dark-tango-headbar-bg: #222526;
+
+$footer-bg: $tango-footer-bg;
+$dark-footer-bg: $dark-tango-headbar-bg;
+
+.footer {
+	background: $footer-bg;
+	padding: 20px;
+	text-align: center;
+
+	a {
+		color: $whole-color;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: $whole-hover;
+	}
+}
+
+[dark-mode] .footer {
+	background: $dark-footer-bg;
+	padding: 20px;
+	text-align: center;
+
+	a {
+		color: $dark-whole-color;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: $dark-whole-hover;
+	}
+}

@@ -3,12 +3,22 @@
     <div class="div-nav">
         {{ partial "navbar-right.html" . }} 
     </div>    
+    <!-- 必须在导航之后添加， 会被遮住无法点击 -->
+    <div class="div-header-icon">
+        <button id="mode" type="button" style="cursor: pointer; border:none; background: transparent; ">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
+        </button>
+    </div>
     <div class="div-title">    
         <a class="navbar-brand" href="/"><h1>六一的部落格</h1></a>
         <br>
         <h3>关关难过关关过，前路漫漫亦灿灿。</h3>
     </div>
 </div>
+{{ $built := resources.Get "js/theme.js" | js.Build "main-theme.js" }}
+{{ with $built }}
+    <script src="{{ $built.RelPermalink }}"></script>
+{{ end }}
 <br><br>
 <!--
 <div class="p-5 rounded text-center header">

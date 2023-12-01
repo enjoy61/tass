@@ -98,6 +98,16 @@ tr:nth-child(even) {
    background-color: $table-even-bg;
 }
 
+$dark-tango-grey: #495057;
+
+[dark-mode] tr:hover {
+  background-color: $dark-tango-grey;
+}
+
+[dark-mode] tr:nth-child(even) {
+   background-color: $dark-whole-bg;
+}
+
 td {
 //  background-color: $table-even-bg;
 }

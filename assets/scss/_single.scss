@@ -4,6 +4,10 @@
 				text-decoration: none;
 		}
 
+		a:hover {
+				color: $whole-hover;
+		}
+
 		h3 {
 				padding-bottom: 10px;
 		}
@@ -12,6 +16,24 @@
 				width: 1.25em;
 				line-height: 0;
 				content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="21" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>');
+				transition: transform .35s ease;
+				transform-origin: .5em 50%;
+		}
+}
+
+[dark-mode] .div-recent {
+		a {
+				color: $dark-primary;
+		}
+
+		a:hover {
+				color: $dark-whole-hover;
+		}
+
+		h3::before {
+				width: 1.25em;
+				line-height: 0;
+				content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="21" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#eaeaea" d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"/></svg>');
 				transition: transform .35s ease;
 				transform-origin: .5em 50%;
 		}
@@ -93,21 +115,31 @@
 		color: $whole-color;
 }
 
-.content-remove {
-		display: none;
+[dark-mode] .article-date {
+		color: $dark-whole-color;
 }
 
-.page-nav {
-		a {
+.single-panel {
+		button, a {
 				color: $primary;
 				text-decoration: none;
 		}
 }
 
+[dark-mode] .single-panel {
+		button, a {
+				color: $dark-primary;
+		}
+}
+
+.content-remove {
+		display: none;
+}
+
 .card-panel {
 		border: 1px solid $border-color;
 		color: $whole-color;
-		background: $whole-bg;
+		background: $footer-bg;
 
 		a {
 			color: $whole-color;
@@ -115,6 +147,20 @@
 
 		a.active {
 			color: $primary;
+		}
+}
+
+[dark-mode] .card-panel {
+		border: 1px solid $dark-border-color;
+		color: $dark-whole-color;
+		background: $dark-footer-bg;
+
+		a {
+			color: $dark-whole-color;
+		}
+
+		a.active {
+			color: $dark-primary;
 		}
 }
 

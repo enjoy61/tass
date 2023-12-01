@@ -1,3 +1,32 @@
+// 浅色主题原色
+$tango-purple: #563863;
+$tango-bg: #EEEEEC;
+$tango-orange: #A7551F;
+$tango-border: #ced4da;
+$dark-tango-color: #1d2d35;
+
+
+// 深色主题原色
+$dark-tango-green: #86C742;
+$dark-tango-red: #E75852;
+$dark-tango-bg: #2F3436;
+$dark-tango-white: #EEEEEC;
+$dark-tango-border: #4C4D4D;
+
+// 使用浅色主题
+$whole-hover: $tango-purple;
+$whole-bg: $tango-bg;
+$whole-color: $dark-tango-color;
+$primary: $tango-orange;
+$border-color: $tango-border;
+
+// 使用深色主题
+$dark-primary: $dark-tango-green;
+$dark-whole-hover: $dark-tango-red;
+$dark-border-color: $dark-tango-border;
+$dark-whole-color: $dark-tango-white;
+$dark-whole-bg: $dark-tango-bg;
+
 .index-panel {
 	a {
 		text-decoration: none;
@@ -17,14 +46,35 @@
 	background: $whole-bg;
 }
 
-
-.list-a
-{
-	color: $list-a-color;
-	text-decoration: none;
-
-
-}
-.list-a:hover {
-		color: $dark-tango-red;
+[dark-mode] .index-panel {
+	a {
+		text-decoration: none;
+		color: $dark-primary;
 	}
+
+	a:hover {
+		color: $dark-whole-hover;
+	}
+
+	border: 1px solid $dark-border-color;
+	border-radius: 2px;
+}	
+
+[dark-mode] .body-panel {
+	color: $dark-whole-color;
+	background: $dark-whole-bg;
+}
+
+.list-panel {
+	a {
+		text-decoration: none;
+		color: $primary;
+	}
+}
+
+[dark-mode] .list-panel {
+	a {
+		color: $dark-primary;
+	}
+}
+

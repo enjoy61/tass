@@ -7,11 +7,35 @@
     margin-top: -9px;
 }
 
+.div-header-icon {
+    position: absolute;
+    button, a {
+    	color: $whole-color;
+    }
+
+    button:hover, a:hover {
+    	color: $whole-hover;
+    }
+    padding: 10px;
+    top: 3%;
+//    width: 100%;
+    margin-top: -9px;
+}
+
 .dropdown-right-toggle::after
 {
     width: 1.25em;
     line-height: 0;
     content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
+}
+
+[dark-mode] .dropdown-right-toggle::after
+{
+    width: 1.25em;
+    line-height: 0;
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#eaeaea" d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>');
     transition: transform .35s ease;
     transform-origin: .5em 50%;
 }
@@ -39,6 +63,60 @@
 
 	a:focus {
 		color: $whole-color;
+		font-weight: bold;
+	}
+
+	a.active {
+		font-weight: bold;
+		// text-decoration: underline;
+	}
+}
+
+[dark-mode] .div-header-icon {
+    position: absolute;
+
+    button, a {
+    	color: $dark-whole-color;
+    }
+
+    button:hover, a:hover {
+    	color: $dark-whole-hover;
+    }
+    padding: 10px;
+    top: 3%;
+//    width: 100%;
+    margin-top: -9px;
+}
+
+$dark-tango-dropdown-bg: #4C4D4D;
+$dropdown-bg: $dark-tango-dropdown-bg;
+
+[dark-mode] .dropdown-menu-right {
+	opacity: 0.9;
+	background: $dropdown-bg;
+	width: auto;
+	text-align: center;
+	a:hover {
+		color: $dark-whole-hover;
+		background-color: transparent;
+	}
+}
+
+[dark-mode] .dropdown-right-toggle {
+	a:hover {
+		color: $dark-primary;
+	}
+}
+
+[dark-mode] .nav-right {
+	a {
+		color: $dark-whole-color;
+	}
+	a:hover {
+		color: $dark-whole-hover;
+	}
+
+	a:focus {
 		font-weight: bold;
 	}
 

@@ -12,13 +12,15 @@ for (i = 0; i < arr.length; ++i)
     }
 }
 
-const nav_item = document.getElementById(cur);
-if (nav_item)
+if (cur)
 {
-    // console.log("ddd", nav_item);
-    nav_item.classList.add('active');
+    const nav_item = document.getElementById(cur);
+    if (nav_item)
+    {
+        // console.log("ddd", nav_item);
+        nav_item.classList.add('active');
+    }
 }
-
 /*
 const navbar = document.querySelector(`.navbar-s a[href="${url}"]`);
 if (navbar)

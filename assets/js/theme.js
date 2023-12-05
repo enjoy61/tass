@@ -49,6 +49,5 @@ if (localStorage.getItem('theme') === 'dark')
 }
 else
 {
-
     document.documentElement.removeAttribute('dark-mode');
 }

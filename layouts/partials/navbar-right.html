@@ -2,7 +2,7 @@
     {{ range .Site.Menus.main }} 
         {{ if .HasChildren }}
         <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-right-toggle" id="{{ .Identifier }}" data-bs-toggle="dropdown">
+            <a href="#" class="nav-link nav-link-shadow dropdown-right-toggle" id="{{ .Identifier }}" data-bs-toggle="dropdown">
                 {{ .Name }}
             </a>    
             <ul class="dropdown-menu dropdown-menu-right">
@@ -12,7 +12,7 @@
             </ul>
         </li>    
         {{ else }}
-         <li class="nav-item"><a class="nav-link" href="{{ .URL }}" id="{{ .Identifier }}">{{ .Name }}</a></li>
+         <li class="nav-item"><a class="nav-link nav-link-shadow" href="{{ .URL }}" id="{{ .Identifier }}">{{ .Name }}</a></li>
         {{ end }} 
     {{ end }}
 </ul>
@@ -25,7 +25,7 @@
 -->
     
 
-{{ $built := resources.Get "js/navbar.js" | js.Build "main-navbar-right.js" }}
+{{ $built := resources.Get "js/navbar.js" | js.Build "main-navbar.js" }}
 {{ with $built }}
     <script src="{{ $built.RelPermalink }}"></script>
 {{ end }}

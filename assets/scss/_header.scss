@@ -40,7 +40,9 @@ $one-sentence-color: $dark-tango-yellow;
 .header-img {
 	width: 100%;
 	height: auto;
-	opacity: 0.9;
+	// opacity: 0.9;
+	-webkit-filter: opacity(90%);
+	filter: opacity(90%);
 }
 
 .div-title {

@@ -1,5 +1,5 @@
 {{ $built := resources.Get "js/format-toc.js" | js.Build "main-format-toc.js" }}
-{{ $built2 := resources.Get "js/toc.js" | js.Build "main-toc-highlight.js" }}
+{{ $built2 := resources.Get "js/toc-unfold.js" | js.Build "main-toc-highlight.js" }}
 {{ with and $built $built2 }}
 
 <!--

@@ -9,3 +9,9 @@
 {{ with resources.Get "scss/app.scss" | toCSS $opts | minify | fingerprint }}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
 {{ end }}
+
+<!-- umami -->
+<!--
+<script async src="https://us.umami.is/script.js" data-website-id="f5f0a9a0-0f20-4181-b647-b1e0ce2ee75f"></script>
+-->
+<script async src="https://umami.enjoy61.com/script.js" data-website-id="7c493bbe-2915-478c-9773-c4514d3df8e8"></script>

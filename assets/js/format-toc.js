@@ -52,7 +52,7 @@ function format_li_start(class_content)
     return temp;
 }
 
-function format_button(class_content, if_toggle, toggle_target, expanded_value, descript, a_class, heading)
+function format_button_a(descript, a_class, heading)
 {
     temp = "<a ";
 
@@ -68,7 +68,6 @@ function format_button(class_content, if_toggle, toggle_target, expanded_value, 
     temp += format_span("bg-success");
     temp += " &nbsp " + descript;
 
-    temp += format_button_toogle(class_content, if_toggle, toggle_target, expanded_value)
     temp += "</a>";
     return temp;
 }
@@ -151,7 +150,14 @@ function button_pack_start(heading, descript)
 
     a_class = "rounded";
 
-    temp += format_button("toc-btn-toggle rounded collapsed", "collapse", toggle_target, "false", descript, a_class, heading);
+    temp += format_button_a(descript, a_class, heading);
+
+    temp += format_button_toogle(
+        "toc-btn-toggle rounded collapsed",
+        "collapse",
+        toggle_target,
+        "false",
+    );
 
     temp += format_div_start(toggle_target_id);
 

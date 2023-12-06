@@ -84,13 +84,18 @@ div.offcanvas-sticky {
     color: $dark-whole-color;
 }
 
-.btn-toggle:hover, .btn-toggle:focus
+.btn-toggle:hover
 {
     color: $whole-hover;
     background: transparent;
 }
 
-[dark-mode] .btn-toggle:hover, .btn-toggle:focus
+.btn-toggle:focus
+{
+    font-weight: bold;
+}
+
+[dark-mode] .btn-toggle:hover
 {
     color: $dark-whole-hover;
 }

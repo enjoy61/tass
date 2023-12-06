@@ -49,12 +49,12 @@ div.toc-sticky {
     word-wrap: break-word;
 }
 
-.toc-btn-toggle:hover, .btn-toggle:focus
+.toc-btn-toggle:hover
 {
     color: $primary;
 }
 
-[dark-mode] .toc-btn-toggle:hover, .btn-toggle:focus
+[dark-mode] .toc-btn-toggle:hover
 {
     color: $dark-primary;
 }

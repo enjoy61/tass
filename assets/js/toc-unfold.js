@@ -64,14 +64,16 @@ function refresh_fold(last)
     {
         const cur_toc_item = document.querySelector(`.toc-panel li[headingIdx="${i}"]`);
 
+        // console.log(cur_toc_item);
+        // console.log(cur_toc_item.childElementCount);
+
         // 展开/关闭子节点
-        if (HeadingFlag[i] || i === last)
+        if (cur_toc_item.childElementCount !== 1)
         {
-            // if (i === last) console.log(2, i);
-            // console.log(cur_toc_item);
-            // console.log(cur_toc_item.childElementCount);
-            if (cur_toc_item.childElementCount !== 1)
+            if (HeadingFlag[i] || i === last)
             {
+                // if (i === last) console.log(2, i);
+
                 // console.log(cur_toc_item.childNodes[1]);
                 const toc_button = cur_toc_item.childNodes[1];
                 // console.log(toc_button);
@@ -79,19 +81,17 @@ function refresh_fold(last)
                 const toc_div = cur_toc_item.childNodes[2];
                 toc_div.classList.add('show');
             }
+            else
+            {
+                // console.log(cur_toc_item.childNodes[1]);
+                const toc_button = cur_toc_item.childNodes[1];
+                // console.log(toc_button);
+                toc_button.setAttribute('aria-expanded', 'false');
+                const toc_div = cur_toc_item.childNodes[2];
+                toc_div.classList.remove('show');
+            }
         }
-        else if (cur_toc_item.childElementCount !== 1)
-        {
-            // console.log(cur_toc_item.childNodes[1]);
-            const toc_button = cur_toc_item.childNodes[1];
-            // console.log(toc_button);
-            toc_button.setAttribute('aria-expanded', 'false');
-            const toc_div = cur_toc_item.childNodes[2];
-            toc_div.classList.remove('show');
-        }
-
-        // 展开双亲节点
-        if (HeadingFlag[i] || i === last)
+        else if (HeadingFlag[i] || i === last) // 展开双亲节点
         {
             // if (i === last) console.log(1, i);
             // console.log(cur_toc_item);

@@ -22,13 +22,8 @@ $dark-footer-bg: $dark-tango-headbar-bg;
 
 [dark-mode] .footer {
 	background: $dark-footer-bg;
-	padding: 20px;
-	text-align: center;
-
 	a {
 		color: $dark-whole-color;
-		font-weight: bold;
-		text-decoration: none;
 	}
 
 	a:hover {

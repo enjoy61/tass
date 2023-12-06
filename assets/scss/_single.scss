@@ -145,9 +145,22 @@
 			color: $whole-color;
 		}
 
-		a.active {
-			color: $primary;
+		a:hover {
+			color: $whole-hover;
 		}
+
+		a.active {
+			// color: $primary;
+			font-weight: bold;
+		}
+}
+
+.card-header {
+	border-bottom: 1px solid $border-color;
+}
+
+[dark-mode] .card-header {
+	border-bottom: 1px solid $dark-border-color;
 }
 
 [dark-mode] .card-panel {
@@ -159,8 +172,13 @@
 			color: $dark-whole-color;
 		}
 
+		a:hover {
+			color: $dark-whole-hover;
+		}
+
 		a.active {
-			color: $dark-primary;
+			// color: $dark-primary;
+			font-weight: bold;
 		}
 }
 
@@ -170,3 +188,18 @@ div.card-panel-sticky {
   	top: 5vh;
 	  overflow-y: auto;
 }
+
+/*
+.el-textarea__inner {
+    min-height: 200px !important;
+}
+
+.el-textarea {
+	background-image: url(https://cdn.pixabay.com/animation/2023/01/11/11/50/11-50-23-112_256.gif);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
+	background-color: rgba(0, 0, 255, 0);
+	resize: vertical
+}
+*/

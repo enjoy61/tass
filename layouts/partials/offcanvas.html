@@ -97,7 +97,7 @@ main
     </ul>
 </div>
 
-{{ $built := resources.Get "js/offcanvas.js" | js.Build "main-offcanvas.js" }}
+{{ $built := resources.Get "js/offcanvas.js" | js.Build "main-offcanvas.js" | minify | fingerprint "sha512" }}
 {{ with $built }}
-    <script src="{{ $built.RelPermalink }}"></script>
+    <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ end }}

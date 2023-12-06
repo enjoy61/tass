@@ -1,25 +1,45 @@
 $dark-tango-yellow: #F9E86B;
 
-$blog-title-color: $dark-tango-white;
-$one-sentence-color: $dark-tango-yellow;
+$tango-blue: #2A4A83;
+$tango-red: #961D13;
+$tango-green: #47663C;
+
+$one-sentence-color: $tango-red;
+$dark-one-sentence-color: $dark-tango-yellow;
 
 .header h1 {
+	margin-top: 7px;
 	font-size: 50px;
-	color: $blog-title-color;
-	text-shadow: 0.02em 0.02em $whole-color;
+	color: $whole-color;
+//	color: $blog-title-color;
+//	text-shadow: 0.02em 0.02em $whole-color;
+}
+
+[dark-mode] .header h1 {
+	color: $dark-whole-color;
+//	text-shadow: 0.02em 0.02em $whole-color;
 }
 
 .header h3 {
 	font-size: 40px;
-	text-shadow: 0.02em 0.02em $whole-color;
+	color: $one-sentence-color;
+	// text-shadow: 0.02em 0.02em $whole-color;
+}
+
+[dark-mode] .header h3 {
+	color: $dark-one-sentence-color;
 }
 
 .header {
+	bottom: 80px;
 	position: relative;
 	text-align: center;	
-	color: $one-sentence-color;
+	
 
-//  padding: 30px;
+	height: 350px;
+	background: $footer-bg;
+
+  	// padding: 30px;
 
     a {
     	color: $whole-color;
@@ -30,6 +50,8 @@ $one-sentence-color: $dark-tango-yellow;
 }
 
 [dark-mode] .header {
+	background: $dark-footer-bg;
+	
     a {
     	:hover {
     		color: $dark-primary;

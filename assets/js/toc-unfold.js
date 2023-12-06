@@ -70,28 +70,25 @@ function refresh_fold(last)
         // 展开/关闭子节点
         if (cur_toc_item.childElementCount !== 1)
         {
+            // console.log(cur_toc_item.childNodes[1]);
+
+            const toc_button = cur_toc_item.childNodes[1];
+            const toc_div = cur_toc_item.childNodes[2];
+
             if (HeadingFlag[i] || i === last)
             {
                 // if (i === last) console.log(2, i);
-
-                // console.log(cur_toc_item.childNodes[1]);
-                const toc_button = cur_toc_item.childNodes[1];
-                // console.log(toc_button);
                 toc_button.setAttribute('aria-expanded', 'true');
-                const toc_div = cur_toc_item.childNodes[2];
                 toc_div.classList.add('show');
             }
             else
             {
-                // console.log(cur_toc_item.childNodes[1]);
-                const toc_button = cur_toc_item.childNodes[1];
-                // console.log(toc_button);
                 toc_button.setAttribute('aria-expanded', 'false');
-                const toc_div = cur_toc_item.childNodes[2];
                 toc_div.classList.remove('show');
             }
         }
-        else if (HeadingFlag[i] || i === last) // 展开双亲节点
+
+        if (HeadingFlag[i] || i === last) // 展开双亲节点
         {
             // if (i === last) console.log(1, i);
             // console.log(cur_toc_item);
@@ -104,12 +101,12 @@ function refresh_fold(last)
                 // console.log(cur_toc_item.parentElement.parentElement);
                 // console.log(cur_toc_item.parentElement.parentElement.previousElementSibling);
                 const toc_div = cur_toc_item.parentElement.parentElement;
-                const toc_button = cur_toc_item.parentElement.parentElement.previousElementSibling;
+                const toc_button = toc_div.previousElementSibling;
 
                 toc_div.classList.add('show');
                 toc_button.setAttribute('aria-expanded', 'true');
 
-                let sub_item = cur_toc_item.parentElement.parentElement.parentElement;
+                let sub_item = toc_div.parentElement;
 
                 while (sub_item && sub_item.parentElement && sub_item.parentElement.parentElement &&
                        sub_item.parentElement.parentElement.previousElementSibling &&
@@ -119,7 +116,7 @@ function refresh_fold(last)
                     // console.log(sub_item.parentElement.parentElement.previousElementSibling.childNodes[2]);
 
                     const toc_div_sub = sub_item.parentElement.parentElement;
-                    const toc_button_sub = sub_item.parentElement.parentElement.previousElementSibling;
+                    const toc_button_sub = toc_div_sub.previousElementSibling;
 
                     toc_div_sub.classList.add('show');
                     toc_button_sub.setAttribute('aria-expanded', 'true');

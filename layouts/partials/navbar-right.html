@@ -25,7 +25,7 @@
 -->
     
 
-{{ $built := resources.Get "js/navbar.js" | js.Build "main-navbar.js" }}
+{{ $built := resources.Get "js/navbar.js" | js.Build "main-navbar.js" | minify | fingerprint "sha512"}}
 {{ with $built }}
-    <script src="{{ $built.RelPermalink }}"></script>
+    <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ end }}

@@ -70,11 +70,19 @@ $dark-whole-bg: $dark-tango-bg;
 		text-decoration: none;
 		color: $primary;
 	}
+
+	a:hover {
+		color: $whole-hover;
+	}
 }
 
 [dark-mode] .list-panel {
 	a {
 		color: $dark-primary;
+	}
+
+	a:hover {
+		color: $dark-whole-hover;
 	}
 }
 

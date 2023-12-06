@@ -1,14 +1,15 @@
 .div-nav {
-    position: absolute;
+    // position: absolute;
     padding: 5px;
-    top: 3%;
+    // top: 29%;
     width: 100%;
     font-size: 18px;
-    margin-top: -9px;
+    // margin-top: -9px;
+    margin-top: -80px;
 }
 
 .div-header-icon {
-    position: absolute;
+    // position: absolute;
     button, a {
     	color: $whole-color;
     }
@@ -17,9 +18,10 @@
     	color: $whole-hover;
     }
     padding: 10px;
-    top: 3%;
-//    width: 100%;
-    margin-top: -9px;
+    // top: 29%;
+    margin-top: -50px;
+    // width: 100%;
+    // margin-top: -9px;
 }
 
 .dropdown-right-toggle::after {
@@ -64,6 +66,9 @@
 }
 
 .nav-right {
+	a {
+		color: $whole-color;
+	}
 	a:hover {
 		color: $whole-hover;
 	}
@@ -80,8 +85,6 @@
 }
 
 [dark-mode] .div-header-icon {
-    position: absolute;
-
     button, a {
     	color: $dark-whole-color;
     }
@@ -89,10 +92,6 @@
     button:hover, a:hover {
     	color: $dark-whole-hover;
     }
-    padding: 10px;
-    top: 3%;
-//    width: 100%;
-    margin-top: -9px;
 }
 
 $dark-tango-dropdown-bg: #4C4D4D;

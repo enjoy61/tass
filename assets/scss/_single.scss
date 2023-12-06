@@ -126,7 +126,31 @@
 		}
 }
 
+.page-nav {
+		border: 1px solid $border-color;
+		border-radius: 5px;
+}
+
+[dark-mode] .page-nav {
+		border: 1px solid $dark-border-color;
+}
+
 [dark-mode] .single-panel {
+		button, a {
+				color: $dark-primary;
+		}
+}
+
+.single-panel-large {
+		font-size: 20px;
+
+		button, a {
+				color: $primary;
+				text-decoration: none;
+		}
+}
+
+[dark-mode] .single-panel-large {
 		button, a {
 				color: $dark-primary;
 		}

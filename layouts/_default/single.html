@@ -37,6 +37,21 @@
                 </div>
                 <div class="three-four-three-three"></div>
                     {{ $flag = 1 }}
+                {{ else if (eq .Title "感谢支持") }}
+                <div class="three-four-three-three"></div>
+                <div class="three-four-three-four">
+                    <article>
+                        <header>
+                            <h1>{{ .Title }}</h1>
+                        </header>
+                        <br>
+                    <div class="single-panel-large">
+                    {{ .Content }}
+                    </div>    
+                    </article>
+                </div>
+                <div class="three-four-three-three"></div>
+                    {{ $flag = 1 }}
                 {{ else if (eq .Title "留言板") }}
                     <article>
                         <header>
@@ -68,7 +83,7 @@
                                 {{ .Content }}
                                 </div> 
                                 {{ if or .NextInSection .PrevInSection }}
-                                <div class="container p-5 my-5 border-s list-unstyled single-panel">
+                                <div class="container p-5 my-5 border-s list-unstyled single-panel page-nav">
                                     {{ with .PrevInSection }}
                                     <li> 下一篇 
                                         <a href="{{ .Permalink }}">{{ .Title }}</a> 
@@ -151,7 +166,7 @@
                         {{ .Content }}
                         </div> 
                         {{ if or .NextInSection .PrevInSection }}
-                        <div class="container p-5 my-5 border-s list-unstyled single-panel">
+                        <div class="container p-5 my-5 border-s list-unstyled single-panel page-nav">
                             {{ with .PrevInSection }}
                             <li> 下一篇 
                                 <a href="{{ .Permalink }}">{{ .Title }}</a> 

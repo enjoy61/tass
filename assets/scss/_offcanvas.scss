@@ -135,14 +135,18 @@ div.offcanvas-sticky {
     text-decoration:none;
 }
 
-.btn-toggle-nav , .btn-toggle-nav 
+.btn-toggle-nav
 {
-    a:hover, a:focus {
+    a:hover {
         color: $whole-hover;
-    }   
+    }  
+
+    a:focus {
+        font-weight: bold;
+    }
 }
 
-[dark-mode] .btn-toggle-nav a:hover, .btn-toggle-nav a:focus
+[dark-mode] .btn-toggle-nav a:hover
 {
     color: $dark-whole-hover;
 }
@@ -154,7 +158,7 @@ div.offcanvas-sticky {
 
 .fw-semibold
 {
-    font-weight:600
+    font-weight: 600;
 }
 
 .lh-tight

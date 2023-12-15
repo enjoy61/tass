@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh">
     <head>
+        <!--
+        <meta name="Robots" contect= "none">
+        -->
+        
+        <title>
+            {{ .Title }}
+        </title>
+        
         {{ partial "head.html" . }}
-        {{ partial "header.html" . }}
     </head>
+
+    {{ partial "header.html" . }}
 
     <body class="body-panel">
         <div class="row">

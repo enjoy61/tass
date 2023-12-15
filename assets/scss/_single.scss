@@ -52,11 +52,7 @@
 
 /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
 @media screen and (max-width: 800px) {
-		.three-four-three-three {
-				width: 0;
-				padding: 0;
-		}
-		.one-eight-one-eight {
+		.three-four-three-three, .one-eight-one-eight {
 				width: 100%;
 				padding: 0;
 		}
@@ -74,11 +70,7 @@
 }
 
 @media screen and (max-width: 800px) {
-		.two-six-two-two {
-				width: 0;
-				padding: 0;
-		}
-		.two-six-two-six {
+		.two-six-two-two, .two-six-two-six {
 				width: 100%;
 				padding: 0;
 		}
@@ -93,7 +85,7 @@
 
 .two-eight-eight {
 		float: left;
-		width: 78%;
+		width: 77%;
 }
 
 /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
@@ -211,6 +203,27 @@ div.card-panel-sticky {
 	  position: sticky;
   	top: 5vh;
 	  overflow-y: auto;
+}
+
+.breadcrumb-nav-item {
+		a {
+				color: $primary;
+				text-decoration: none;
+		}
+
+		a:hover {
+				color: $whole-hover;
+		}
+}
+
+[dark-mode] .breadcrumb-nav-item {
+		a {
+				color: $dark-primary;
+		}
+
+		a:hover {
+				color: $dark-whole-hover;
+		}
 }
 
 /*

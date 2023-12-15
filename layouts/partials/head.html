@@ -1,10 +1,26 @@
 <meta charset="UTF-8">
-<title>六一的部落格</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/favicon.ico">
+
+<script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "六一的部落格",
+      "url" : "https://enjoy61.com/"
+    }
+</script>
+
+<meta property="og:site_name" content="六一的部落格">
+
+<!-- Bootstrap 5 -->
 <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
 
+<!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/32572eadec.js" crossorigin="anonymous"></script>
+
 <!-- 导入SCSS -->
 {{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
 {{ with resources.Get "scss/app.scss" | toCSS $opts | minify | fingerprint }}

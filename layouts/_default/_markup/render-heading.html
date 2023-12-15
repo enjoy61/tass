@@ -5,7 +5,8 @@
 {{ $level := .Level }}
 
 <!-- 只支持2-4 -->
-<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+<br>
+<h{{ .Level }} id="{{ .Anchor | safeURL }}" style="padding-bottom: 15px;">
 	{{ $s := slice "" "#941100" "#008f51" "#0096ff" "#000000" "#FFFFFF" "#FFFFFF" }}
 	{{ range $k, $v := $s }}
 		{{ if eq $k $level }}

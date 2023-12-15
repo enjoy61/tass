@@ -197,7 +197,7 @@ function button_pack_close() /* close_button */
 
 function format_toc(headings)
 {
-    toc = "<div class=\"flex-shrink-0 p-3 toc-sticky\">\n";
+    toc = "<div class=\"flex-shrink-0 toc-sticky\">\n";
     toc += "<ul class=\"list-unstyled ps-0\">\n"
 
     for (i = 1; i < headings.length; ++i)

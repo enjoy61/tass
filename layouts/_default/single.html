@@ -166,7 +166,9 @@
                 <div class="two-eight-eight" style="word-break:break-all; ">
                     <article>
                         <div class="container-fluid">
-                            {{ partial "breadcrumb.html" . }}
+                            {{ if eq .Section "notebook" }}
+                                {{ partial "breadcrumb.html" . }}
+                            {{ end }}    
                             <header>
                                 <h1>
                                     {{ if or (eq .Section "notebook") (eq .Section "blog") }}

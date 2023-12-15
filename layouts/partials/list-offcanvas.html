@@ -35,7 +35,7 @@ main
     </symbol>
 </svg>
 
-<div class="flex-shrink-0 offcanvas-s offcanvas-sticky" id="offcanvas-st">
+<div class="flex-shrink-0 offcanvas-s list-offcanvas-sticky" id="offcanvas-st">
     <!--
     <a href="/notebook" class="d-flex align-items-center pb-3 mb-3 link-light text-decoration-none border-bottom-s">
         <svg class="bi me-2" width="30" height="24"><use xlink:href="#grid"/></svg>
@@ -43,19 +43,18 @@ main
     </a>
 -->
     <ul class="list-unstyled ps-0">
-        {{ range where .Site.Sections "Section" "notebook" }}
-        {{ range .Sections }}
+
         <li class="mb-1 my-1 ms-3">
-            <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+            <button class="btn-toggle list-btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="true">
                 &nbsp {{ .Title }}
             </button>
-            <div class="collapse" id="section-{{ md5 .Title }}" data-bs-parent="#offcanvas-st">
+            <div class="collapse show" id="section-{{ md5 .Title }}" data-bs-parent="#offcanvas-st">
                 <!-- small会逐渐减小字体; btn会有框 -->
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
                     {{ range .Pages }}
                     {{ if .IsNode }}
                     <li class="mb-1 my-1 ms-3">
-                        <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+                        <button class="btn-toggle list-btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
                             &nbsp {{ .Title }}
                         </button>
 
@@ -65,7 +64,7 @@ main
 
                                 {{ if .IsNode }}
                                 <li class="mb-1 my-1 ms-3">
-                                    <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+                                    <button class="btn-toggle list-btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
                                         &nbsp {{ .Title }}
                                     </button>
 
@@ -75,20 +74,20 @@ main
                                             
                                             {{ if .IsNode }}
                                             <li class="mb-1 my-1 ms-3">
-                                                <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+                                                <button class="btn-toggle list-btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
                                                     &nbsp {{ .Title }}
                                                 </button>
 
                                                 <div class="collapse" id="section-{{ md5 .Title }}">
                                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
                                                         {{ range .Pages }}
-                                                        <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
+                                                        <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item list-offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
                                                         {{ end }}    
                                                     </ul>
                                                 </div> 
                                             </li>
                                             {{ else }}
-                                            <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
+                                            <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item list-offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
                                             {{ end }} 
 
                                             {{ end }}    
@@ -96,7 +95,7 @@ main
                                     </div> 
                                 </li>
                                 {{ else }}
-                                <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
+                                <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item list-offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
                                 {{ end }} 
 
                                 {{ end }}    
@@ -104,18 +103,12 @@ main
                         </div> 
                     </li>
                     {{ else }}
-                    <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title}} </a></li>
+                    <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item list-offcanvas-item-font"> &nbsp {{ .Title}} </a></li>
                     {{ end }} 
                     {{ end }}    
                 </ul>  
             </div> 
         </li>
-        {{ end }}
-        {{ end }}
+       
     </ul>
 </div>
-
-{{ $built := resources.Get "js/offcanvas.js" | js.Build "main-offcanvas.js" | minify | fingerprint "sha512" }}
-{{ with $built }}
-    <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" crossorigin="anonymous"></script>
-{{ end }}

@@ -22,7 +22,7 @@ div.offcanvas-sticky {
     height: 80vh;
 }
 
-.offcanvas-item {
+.offcanvas-item-font {
     font-size: 14px;
 }
 
@@ -72,11 +72,15 @@ div.offcanvas-sticky {
 {
     background: transparent;
     color: $whole-color;
-
     display: inline-flex;
     align-items: center;
-    font-size: 14px;
+    
     border: 0;
+}
+
+.btn-toggle-font
+{
+    font-size: 14px;
 }
 
 [dark-mode] .btn-toggle

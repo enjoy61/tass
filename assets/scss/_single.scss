@@ -39,7 +39,7 @@
 		}
 }
 
-// 1:8:1, 只有正文
+// 3:4:3, 只有正文
 .three-four-three-three {
 		float: left;
 		width: 30%;
@@ -52,7 +52,7 @@
 
 /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
 @media screen and (max-width: 800px) {
-		.three-four-three-three, .one-eight-one-eight {
+		.three-four-three-three, .three-four-three-four {
 				width: 100%;
 				padding: 0;
 		}

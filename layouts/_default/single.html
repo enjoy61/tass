@@ -2,15 +2,20 @@
 <html lang="zh">
 
     <head>
-        <meta property="og:title" content="{{ .Title }}">
+        <meta property="title" content="{{ .Title }}">
         <meta property="og:type" content="article">
+
+        {{ if eq .Description "" }}
+            <meta property="description" content="{{ .Summary }}">
+        {{ else }}    
+            <meta property="description" content="{{ .Description }}">
+        {{ end }}
         <title>
             {{ .Title }}
         </title>
 
         {{ partial "head.html" . }}
     </head>
-
     {{ partial "header.html" . }}
 
     {{ $format := "January 2, 2006" }}
@@ -19,8 +24,8 @@
         <div class="container-fluid mt-3">
             <div class="row">
                 {{ if eq .Section "recent" }}
-                <div class="three-four-three-three"></div>
-                <div class="three-four-three-four">
+                <div class="two-six-two-two"></div>
+                <div class="two-six-two-six">
                     <article>
                         <header>
                             <h1>{{ .Title }}</h1>
@@ -28,7 +33,7 @@
                     {{ partial "single-recent.html" . }}
                     </article>
                 </div>
-                <div class="three-four-three-three"></div>
+                <div class="two-six-two-two"></div>
                     {{ $flag = 1 }}
                 {{ else if or (eq .Section "about") (eq .Title "书签") }}    
                 <div class="three-four-three-three"></div>
@@ -113,6 +118,7 @@
                                 {{ end }}
                             </article>
                         </div>
+                        <div class="two-six-two-two"></div>
                     {{ end }}
                 {{ end }}
 
@@ -123,8 +129,8 @@
                 <div class="two-eight-two container">
                     {{ if eq .Section "blog" }}
                     <div class="card card-panel card-panel-sticky">
-                        <div class="card-header">
-                            <h5 style="display: inline; ">文章目录</h5>
+                        <div class="card-header" style="height: 50px; padding-top: 12px; padding-left: 30px; ">
+                            <h5 style="display: inline; font-size: 17px; ">标题目录</h5>
                         </div>
                         <div class="card-body">
                             <div class="toc-panel">
@@ -137,10 +143,10 @@
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills nav-fill" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a class="btn active" id="toc-tab" data-bs-toggle="tab" data-bs-target="#toc-pane" type="button" role="tab" aria-controls="toc-pane" aria-selected="true">文章目录</a>
+                                    <a class="btn active" id="toc-tab" data-bs-toggle="tab" data-bs-target="#toc-pane" type="button" role="tab" aria-controls="toc-pane" aria-selected="true">标题目录</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="btn" id="offcanvas-tab" data-bs-toggle="tab" data-bs-target="#offcanvas-pane" type="button" role="tab" aria-controls="offcanvas-pane" aria-selected="false">导航</a>
+                                    <a class="btn" id="offcanvas-tab" data-bs-toggle="tab" data-bs-target="#offcanvas-pane" type="button" role="tab" aria-controls="offcanvas-pane" aria-selected="false">笔记导航</a>
                                 </li>
                             </ul>
                         </div>
@@ -168,6 +174,7 @@
                         <div class="container-fluid">
                             {{ if eq .Section "notebook" }}
                                 {{ partial "breadcrumb.html" . }}
+                                <br>
                             {{ end }}    
                             <header>
                                 <h1>

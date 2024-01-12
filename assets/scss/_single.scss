@@ -52,9 +52,14 @@
 
 /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
 @media screen and (max-width: 800px) {
-		.three-four-three-three, .three-four-three-four {
+		.three-four-three-three {
+				width: 80%;
+				padding: 10px;
+		}
+
+		.three-four-three-four {
 				width: 100%;
-				padding: 0;
+				padding: 10px;
 		}
 }
 
@@ -70,9 +75,14 @@
 }
 
 @media screen and (max-width: 800px) {
-		.two-six-two-two, .two-six-two-six {
+		.two-six-two-two {
+				width: 80%;
+				padding: 10px;
+		}
+
+		.two-six-two-six {
 				width: 100%;
-				padding: 0;
+				padding: 10px;
 		}
 }
 
@@ -90,9 +100,14 @@
 
 /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
 @media screen and (max-width: 800px) {
-		.two-eight-two, .two-eight-eight {
+		.two-eight-two {
+				width: 80%;
+				padding: 10px;
+		}
+
+		.two-eight-eight {
 				width: 100%;
-				padding: 0;
+				padding: 10px;
 		}
 }
 

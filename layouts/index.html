@@ -2,10 +2,20 @@
 <html lang="zh">
 
     <head>
-        <meta property="og:type" content="website">
         <title>
             六一的部落格
         </title>
+
+        <script type="application/ld+json">
+            {
+              "@context" : "https://schema.org",
+              "@type" : "WebSite",
+              "name" : "六一的部落格",
+              "url" : "https://enjoy61.com/"
+            }
+        </script>
+        
+        <meta property="og:type" content="website">
         
         {{ partial "head.html" . }}
     </head>
@@ -66,10 +76,15 @@
   </div>
 </section>
 -->
-    <br>
+        <br>
         <!-- 更新列表 -->
-
-        {{ partial "index-recent.html" . }}
+        <div class="row">
+            <div class="two-six-two-two"></div>
+            <div class="two-six-two-six">
+                {{ partial "index-recent.html" . }}
+            </div>
+            <div class="two-six-two-two"></div>
+        </div>
 
         {{ partial "footer.html" . }}
     </body>

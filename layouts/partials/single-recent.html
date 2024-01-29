@@ -6,9 +6,11 @@
 {{ $last_day_val := "" }}
 {{ $format := "Mon, 2 Jan 2006" }}      
 
+{{ $sections := slice "notebook" "blog" }}
+
 <div class="div-recent">
 	{{ if eq .Name "最近发布" }}
-	    {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook" }}
+	    {{ range where .Site.RegularPages.ByPublishDate.Reverse "Section" "in" $sections }}
 	        {{ $current_target := .PublishDate }}
 	        {{ $year_val := $current_target | time.Format $year_format }}
 	        {{ $month_val := $current_target | time.Format $month_format }}
@@ -33,6 +35,13 @@
 	        {{ end }}
 
 	        <h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+	        	{{ if eq .Section "blog" }}
+	            <nobr><b>日志</b></nobr>
+	            {{ else if eq .Section "notebook" }}
+	            <nobr><b>笔记</b></nobr>
+	            {{ end }}
+	            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+	            
 	            {{ range after 2 .Ancestors.Reverse }}
 	                {{ .LinkTitle }}
 	                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
@@ -41,7 +50,7 @@
 	        </h6>
 	    {{ end }}
 	{{ else if eq .Name "最近更新" }}
-	    {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "notebook" }}
+		{{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "in" $sections }}
 	        {{ $current_target := .Lastmod }}
 	        {{ $year_val := $current_target | time.Format $year_format }}
 	        {{ $month_val := $current_target | time.Format $month_format }}
@@ -65,6 +74,13 @@
 	        {{ end }}
 
 	        <h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+	        	{{ if eq .Section "blog" }}
+	            <nobr><b>日志</b></nobr>
+	            {{ else if eq .Section "notebook" }}
+	            <nobr><b>笔记</b></nobr>
+	            {{ end }}
+	            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+
 	            {{ range after 2 .Ancestors.Reverse }}
 	                {{ .LinkTitle }}
 	                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> 

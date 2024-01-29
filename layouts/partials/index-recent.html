@@ -5,13 +5,15 @@
 {{ $max := 10 }} 
 
 <div class="container p-5 my-5 index-panel">
-    <h2> 最近发布 </h2>
-
+    
+    <h2><a href="recent/published/">最近发布</a></h2>
+    
     {{ $last_year_val := "" }}
     {{ $last_month_val := "" }}
     {{ $last_day_val := "" }}
 
-    {{ range first $max (where .Site.RegularPages.ByPublishDate.Reverse "Section" "notebook") }}
+    {{ $sections := slice "notebook" "blog" }}
+    {{ range first $max (where .Site.RegularPages.ByPublishDate.Reverse "Section" "in" $sections) }}
         {{ $current_target := .PublishDate }}
         {{ $year_val := $current_target | time.Format $year_format }}
         {{ $month_val := $current_target | time.Format $month_format }}
@@ -35,10 +37,18 @@
         {{ end }}
 
         <h6>
+            {{ if eq .Section "blog" }}
+            <nobr><b>日志</b></nobr>
+            {{ else if eq .Section "notebook" }}
+            <nobr><b>笔记</b></nobr>
+            {{ end }}
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+
             {{ range after 2 .Ancestors.Reverse }}
                 {{ .LinkTitle }}
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
             {{ end }}
+
             <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h6>
     {{ end }}
@@ -50,14 +60,15 @@
 {{ $format := "Mon, 2 Jan 2006" }} 
 {{ $max := 10 }} 
 
-<div class="container p-5 my-5 index-panel">    
-    <h2> 最近更新 </h2>     
+<div class="container p-5 my-5 index-panel">
+    <h2><a href="recent/updated/">最近更新</a></h2>
 
     {{ $last_year_val := "" }}
     {{ $last_month_val := "" }}
     {{ $last_day_val := "" }}
 
-    {{ range first $max (where .Site.RegularPages.ByLastmod.Reverse "Section" "notebook") }}
+    {{ $sections := slice "notebook" "blog" }}
+    {{ range first $max (where .Site.RegularPages.ByLastmod.Reverse "Section" "in" $sections) }}
         {{ $current_target := .Lastmod }}
         {{ $year_val := $current_target | time.Format $year_format }}
         {{ $month_val := $current_target | time.Format $month_format }}
@@ -81,6 +92,12 @@
         {{ end }}
 
         <h6>
+            {{ if eq .Section "blog" }}
+            <nobr><b>日志</b></nobr>
+            {{ else if eq .Section "notebook" }}
+            <nobr><b>笔记</b></nobr>
+            {{ end }}
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
             {{ range after 2 .Ancestors.Reverse }}
                 {{ .LinkTitle }}
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>

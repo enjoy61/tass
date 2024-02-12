@@ -1,4 +1,5 @@
 .div-recent {
+	cursor: default;
 		a {
 				color: $primary;
 				text-decoration: none;
@@ -241,6 +242,21 @@ div.card-panel-sticky {
 		}
 }
 
+.title-anchor {
+  	color: $primary;
+
+  	:hover {
+  			color: $primary;
+  	}
+}
+
+[dark-mode] .title-anchor {
+  	color: $dark-primary;
+
+  	  	:hover {
+  			color: $dark-primary;
+  	}
+}
 /*
 .el-textarea__inner {
     min-height: 200px !important;

@@ -10,6 +10,38 @@
 {{ $opts := merge .Options (dict "linenos" $lineNumbers) }}
 {{ $opts = merge $opts (dict "style" $style) }}
 
+{{ $result := transform.HighlightCodeBlock . $opts }} 
+
+<script type="text/javascript">
+function copyToClipboard() {
+    var copyButton = event.currentTarget;
+    var codeContent = copyButton.getAttribute("code-text");
+    // alert(codeContent);
+    var timeout = 1600;
+
+    navigator.clipboard.writeText(codeContent).then(() => {
+        copyButton.innerHTML = "Content copied to clipboard!";
+
+        setTimeout(function (copyButton) {
+            copyButton.innerHTML = "Copy";
+        }, timeout, copyButton);
+
+        // console.log('Content copied to clipboard');
+        /* Resolved - 文本被成功复制到剪贴板 */
+    },() => {
+        copyButton.innerHTML = "Failed to copy!";
+
+        setTimeout(function (copyButton) {
+            copyButton.innerHTML = "Copy";
+        }, timeout, copyButton);
+
+        // alert("拷贝失败！");
+        // console.error('Failed to copy');
+        /* Rejected - 文本未被复制到剪贴板 */
+    });
+}  
+</script>
+
 {{ if ne .Type "text"}} 
   {{ $text := .Type }}
   {{ if eq .Type "bash" }}
@@ -22,7 +54,7 @@
     {{ $text = "HTML" }}  
   {{ end }}
   
-<pre data-lang={{ $text }} class="bg-dark my-4">{{ $result := transform.HighlightCodeBlock . $opts }} {{ $result.Inner }}</pre>
+<pre data-lang={{ $text }} class="pre-lang bg-dark my-4"><button class="copy-code text-success" code-text={{ .Inner }} onclick="copyToClipboard()">Copy</button>{{ $result.Inner }}</pre>
 {{ else }}
-<pre class="bg-dark my-4">{{ $result := transform.HighlightCodeBlock . $opts }} {{ $result.Inner }}</pre>
+<pre class="my-4 pre-text">{{ $result.Inner }}</pre>
 {{ end }}

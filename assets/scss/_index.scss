@@ -28,6 +28,8 @@ $dark-whole-color: $dark-tango-white;
 $dark-whole-bg: $dark-tango-bg;
 
 .index-panel {
+	cursor: default;
+	user-select: none;
 	a {
 		text-decoration: none;
 		color: $primary;
@@ -53,6 +55,8 @@ $dark-whole-bg: $dark-tango-bg;
 }	
 
 .body-panel {
+	cursor: default;
+	user-select: none;
 	color: $whole-color;
 	background: $whole-bg;
 }

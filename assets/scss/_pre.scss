@@ -4,7 +4,7 @@ pre {
   padding: 1em;
 
   margin: 0;
-  color: $gray-400;
+  
   border-radius: 5px; 
   white-space: pre;
   word-spacing: normal;   
@@ -13,10 +13,25 @@ pre {
   line-height: 1.5;
 
   tab-width: 4;
-} 
+}
+
+.pre-lang {
+  color: $gray-400;
+}
+
+.pre-text {
+  // color: $gray-700;
+  border: 1px solid $gray-400;
+  color: $whole-color;
+}
+
+[dark-mode] .pre-text {
+  border: 1px solid $gray-700;
+  color: $dark-whole-color;
+}
 
 pre span {    
-  line-height: 1.5rem;  
+  line-height: 1.5rem;
   white-space: pre;
 }
 
@@ -28,4 +43,10 @@ pre[data-lang]::before {
 //  background-color: gray;  
 //  border-radius: 3px; 
   border-bottom: 1px solid gray;
+}
+
+.copy-code {
+  float: right;
+  background-color: transparent;
+  border: 0px solid gray;
 }

@@ -43,8 +43,8 @@ fetch(url_token, {
 const axios = require('axios');
 const url = 'https://umami.enjoy61.com';
 const token =
-    "IisBJGTwNTf0Qaqp8jNhTJWgSEO6J2nv7J5ZSo165WvK4PRQ0Arn8VWOb2wOVX1wZ3hJSN1/LQ7FA9hHZiKmrAnZxUMx6xeQierWF50F9QmhE6T4/dTdSkOzjgfvUSgBe9T1MWdsqzJ4aAlr28cUJWDzawl8m9ndZoVfw8Wn3QtYk6LTJPYpCxz2RNpmSAEfqOBGgslqDEi097WV4C0dXi+J7ReG/23BShKLWUHyz4or57Ej3A+Q/61/oUsCqtlxg0l49jy3b8YBq+oLB2dPth3h8YaABIq2G6/syeA9Zm+xJtnaMdoUO2swPFEqUrNGylS6wqQBsUBbVOLMRoqVLY+yMzRCXbM12g==";
-const website_id = "7c493bbe-2915-478c-9773-c4514d3df8e8";
+    "+vTbCJXDr7ukNWdFEa7yMiLexyU4vqUld4imm2ATBh5K/f7Hyz4hsKEZ1dbCM4SgJsWsW7vC/qTekoDcgrFqvvdAkmKwlH1Cb91NI1JbT+aqm9EjMnSfEJgX9Il9fzGt1ZMy5bDkNZ6k3OFxytkOvGf8NNhB3ThL4uSvoplhttg/BT1/WjJ8SJGk7YgSq/MxakgTFCdXYS0Ac0cj4dDEeMzpVdXYbz+A2Dq/TZ91ChzGr6x7iIDss6dw+9avwrFemUMPwrXq5VTsPXRvzvzohdrKhrad8RkHNw77oBt6Nkic9UqGp0yOdrymP0BygREjTF6+zjst7ToQeYapgrDPt3MTMAdRLJN2SA==";
+const website_id = "3b1506e8-f2b7-4af5-8f2e-760349a09854";
 
 /*
 const user_info = {
@@ -132,10 +132,7 @@ function get_single_pageview(token)
 function update_single_pageview(times)
 {
     const pageview_elem = document.getElementById("single-pageview");
-    if (pageview_elem)
-    {
-        pageview_elem.innerText = times;
-    }
+    if (pageview_elem) { pageview_elem.innerText = times; }
 }
 
 /*

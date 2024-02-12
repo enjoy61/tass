@@ -37,6 +37,17 @@ $dark-whole-bg: $dark-tango-bg;
 		color: $whole-hover;
 	}
 
+	h2 {
+		a {
+		text-decoration: none;
+		color: $whole-color;
+		}
+
+		a:hover {
+			color: $primary;
+		}
+	}
+
 	border: 1px solid $border-color;
 	border-radius: 2px;
 }	
@@ -50,6 +61,16 @@ $dark-whole-bg: $dark-tango-bg;
 	a {
 		text-decoration: none;
 		color: $dark-primary;
+	}
+
+	h2 {
+		a {
+		color: $dark-whole-color;
+		}
+
+		a:hover {
+			color: $dark-primary;
+		}
 	}
 
 	a:hover {
@@ -66,7 +87,6 @@ $dark-whole-bg: $dark-tango-bg;
 }
 
 .list-panel {
-
 	a {
 		font-size: 19px;
 		text-decoration: none;

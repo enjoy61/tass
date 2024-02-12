@@ -8,25 +8,47 @@ $dark-footer-bg: $dark-tango-headbar-bg;
 	background: $footer-bg;
 	padding: 20px;
 	text-align: center;
+}
 
+.footer-link {
+	cursor: default;
+	a {
+		cursor: hand;
+		font-weight: bold;
+		color: $whole-color;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: $primary;
+	}
+}
+
+.footer-text {
+	cursor: default;
 	a {
 		color: $whole-color;
 		font-weight: bold;
 		text-decoration: none;
 	}
-
-	a:hover {
-		color: $whole-hover;
-	}
 }
 
 [dark-mode] .footer {
 	background: $dark-footer-bg;
+}
+
+[dark-mode] .footer-link {
 	a {
 		color: $dark-whole-color;
 	}
 
 	a:hover {
-		color: $dark-whole-hover;
+		color: $dark-primary;
+	}
+}
+
+[dark-mode] .footer-text {
+	a {
+		color: $dark-whole-color;
 	}
 }

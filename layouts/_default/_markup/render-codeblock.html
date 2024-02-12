@@ -20,18 +20,22 @@ function copyToClipboard() {
     var timeout = 1600;
 
     navigator.clipboard.writeText(codeContent).then(() => {
+        copyButton.setAttribute("style", "border: 0px solid gray;");      
         copyButton.innerHTML = "Content copied to clipboard!";
 
         setTimeout(function (copyButton) {
+            copyButton.setAttribute("style", "");
             copyButton.innerHTML = "Copy";
         }, timeout, copyButton);
 
         // console.log('Content copied to clipboard');
         /* Resolved - 文本被成功复制到剪贴板 */
     },() => {
+        copyButton.setAttribute("style", "border: 0px solid gray;");
         copyButton.innerHTML = "Failed to copy!";
 
         setTimeout(function (copyButton) {
+            copyButton.setAttribute("style", "");
             copyButton.innerHTML = "Copy";
         }, timeout, copyButton);
 

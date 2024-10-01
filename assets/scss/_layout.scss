@@ -1,12 +1,26 @@
 * {
   box-sizing: border-box;
 }
+
+//@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css");
  
 body {
-  font-family: Arial;
+  font-family: ComicShannsMono, "GenYoGothic";
+  // font-weight: bold;
+
   //padding: 10px;
 //  background: #f1f1f1;
 }
+
+
+code {
+  font-family: Iosevka;
+  // font-weight: bold;
+  // font-size: 14px;
+  //color: $primary;
+  // Menlo, monospace, Consolas;
+}
+
 
 /* 导航条链接 */
 .topnav a {

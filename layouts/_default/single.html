@@ -40,6 +40,9 @@
                 <div class="three-four-three-four">
                     <article>
                         <header>
+                            {{ if (eq .Title "留言板") }}
+                            <div style="text-align: center; ">
+                            {{ end }}
                             <h1>{{ .Title }}</h1>
                         </header>
                         <br>
@@ -66,13 +69,20 @@
                 <div class="three-four-three-three"></div>
                     {{ $flag = 1 }}
                 {{ else if (eq .Title "留言板") }}
+                <div class="three-four-three-three"></div>
+                <div class="three-four-three-four">
                     <article>
                         <header>
                             <div style="text-align: center; ">
                             <h1>{{ .Title }}</h1>
-                            </div>
                         </header>
+                        <br>
+                    <div class="single-panel">
+                    {{ .Content }}
+                    </div>    
                     </article>
+                </div>
+                <div class="three-four-three-three"></div>
                     {{ $flag = 1 }}
                 {{ else if eq .Section "blog" }}
                     {{ if lt .WordCount 20 }}
@@ -141,7 +151,7 @@
                             </div>
                         </div>
                     </div>
-                    {{ else }}
+                    {{ else if or (eq .Section "notebook") (eq .Section "handbook") }}
                     <div class="card card-panel card-panel-sticky">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills nav-fill" role="tablist">
@@ -162,10 +172,15 @@
                                 </div> 
                                 <div class="tab-pane fade" id="offcanvas-pane" role="tabpanel" aria-labelledby="offcanvas-tab" tabindex="0">
                                 
+                                    {{ if eq .Section "notebook" }}
                                     <div class="offcanvas-panel">
                                         {{ partial "offcanvas.html" . }}
                                     </div>
-                                
+                                    {{ else if (eq .Section "handbook") }}
+                                    <div class="offcanvas-panel">
+                                        {{ partial "offcanvas-handbook.html" . }}
+                                    </div>
+                                    {{ end }}
                                 </div>   
                             </div>
                         </div>    
@@ -175,13 +190,13 @@
                 <div class="two-eight-eight" style="word-break:break-all; ">
                     <article>
                         <div class="container-fluid">
-                            {{ if eq .Section "notebook" }}
+                            {{ if or (eq .Section "notebook") (eq .Section "handbook") }}
                                 {{ partial "breadcrumb.html" . }}
                                 <br>
                             {{ end }}    
                             <header>
                                 <h1>
-                                    {{ if or (eq .Section "notebook") (eq .Section "blog") }}
+                                    {{ if or (eq .Section "notebook") (eq .Section "blog") (eq .Section "handbook") }}
                                     <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#941100" d="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>
                                     {{ end }}
                                     {{ .Title }}
@@ -227,7 +242,7 @@
             </div>
         </div>
 
-        {{ if or (eq .Section "notebook") (eq .Section "blog") (eq .Title "留言板" ) }}
+        {{ if or (eq .Section "notebook") (eq .Section "blog") (eq .Title "留言板" ) (eq .Section "handbook") }}
         <div class="single-panel">
         {{ partial "comment.html" . }}
         </div> 

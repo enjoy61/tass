@@ -1,11 +1,20 @@
 $dark-tango-yellow: #F9E86B;
+$dark-tango-blue: #97C3FA;
+$dark-tango-light-green: #BEF080;
+
+$light-blue: #7EC0EE;
+$dark-blue: #87CEFF;
 
 $tango-blue: #2A4A83;
 $tango-red: #961D13;
 $tango-green: #47663C;
 
+
 $one-sentence-color: $tango-red;
-$dark-one-sentence-color: $dark-tango-yellow;
+$dark-one-sentence-color: $dark-tango-green;
+
+$one-sentence-color-hover: $tango-orange;
+$dark-one-sentence-color-hover: $dark-tango-blue;
 
 .header h1 {
 	margin-top: 7px;
@@ -21,14 +30,16 @@ $dark-one-sentence-color: $dark-tango-yellow;
 }
 
 .header h3 {
-	font-size: 40px;
-	color: $one-sentence-color;
+
+	font-size: 35px;
+	// color: $one-sentence-color;
 	cursor: default;
 	// text-shadow: 0.02em 0.02em $whole-color;
 }
 
 [dark-mode] .header h3 {
-	color: $dark-one-sentence-color;
+color: $dark-whole-color;
+	// color: $dark-one-sentence-color;
 }
 
 .header {
@@ -45,7 +56,7 @@ $dark-one-sentence-color: $dark-tango-yellow;
     a {
     	color: $whole-color;
     	:hover {
-    		color: $primary;
+    		color: $one-sentence-color-hover;
     	}
     }
 }
@@ -55,7 +66,7 @@ $dark-one-sentence-color: $dark-tango-yellow;
 	
     a {
     	:hover {
-    		color: $dark-primary;
+    		color: $dark-one-sentence-color-hover;
     	}
     }
 }

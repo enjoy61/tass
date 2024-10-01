@@ -1,0 +1,121 @@
+<style>
+body
+{
+    min-height:100vh;
+    min-height:-webkit-fill-available
+}
+html
+{
+    height:-webkit-fill-available
+}
+main
+{
+    display:flex;
+    flex-wrap:nowrap;
+    height:100vh;
+    height:-webkit-fill-available;
+    max-height:100vh;
+    overflow-x:auto;
+    overflow-y:hidden
+}
+
+
+@media (min-width:768px)
+{
+    .bd-placeholder-img-lg
+    {
+        font-size:3.5rem
+    }
+}
+</style>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+    </symbol>
+</svg>
+
+<div class="flex-shrink-0 offcanvas-s offcanvas-sticky" id="offcanvas-st">
+    <!--
+    <a href="/notebook" class="d-flex align-items-center pb-3 mb-3 link-light text-decoration-none border-bottom-s">
+        <svg class="bi me-2" width="30" height="24"><use xlink:href="#grid"/></svg>
+        <span class="fs-5 fw-semibold">类别</span>
+    </a>
+-->
+    <ul class="list-unstyled ps-0">
+        {{ range where .Site.Sections "Section" "handbook" }}
+        {{ range .Sections }}
+        <li class="mb-1 my-1 ms-3">
+            <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+                &nbsp {{ .Title }}
+            </button>
+            <div class="collapse" id="section-{{ md5 .Title }}" data-bs-parent="#offcanvas-st">
+                <!-- small会逐渐减小字体; btn会有框 -->
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                    {{ range .Pages }}
+                    {{ if .IsNode }}
+                    <li class="mb-1 my-1 ms-3">
+                        <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+                            &nbsp {{ .Title }}
+                        </button>
+
+                        <div class="collapse" id="section-{{ md5 .Title }}">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                                {{ range .Pages }}
+
+                                {{ if .IsNode }}
+                                <li class="mb-1 my-1 ms-3">
+                                    <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+                                        &nbsp {{ .Title }}
+                                    </button>
+
+                                    <div class="collapse" id="section-{{ md5 .Title }}">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                                            {{ range .Pages }}
+                                            
+                                            {{ if .IsNode }}
+                                            <li class="mb-1 my-1 ms-3">
+                                                <button class="btn-toggle btn-toggle-font align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="false">
+                                                    &nbsp {{ .Title }}
+                                                </button>
+
+                                                <div class="collapse" id="section-{{ md5 .Title }}">
+                                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
+                                                        {{ range .Pages }}
+                                                        <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
+                                                        {{ end }}    
+                                                    </ul>
+                                                </div> 
+                                            </li>
+                                            {{ else }}
+                                            <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
+                                            {{ end }} 
+
+                                            {{ end }}    
+                                        </ul>
+                                    </div> 
+                                </li>
+                                {{ else }}
+                                <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title }} </a></li>
+                                {{ end }} 
+
+                                {{ end }}    
+                            </ul>
+                        </div> 
+                    </li>
+                    {{ else }}
+                    <li><a href="{{ .RelPermalink }}" class="link-dark rounded align-items-baseline offcanvas-item offcanvas-item-font"> &nbsp {{ .Title}} </a></li>
+                    {{ end }} 
+                    {{ end }}    
+                </ul>  
+            </div> 
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</div>
+
+{{ $built := resources.Get "js/offcanvas.js" | js.Build "main-offcanvas.js" | minify | fingerprint "sha512" }}
+{{ with $built }}
+    <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}

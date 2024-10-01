@@ -43,7 +43,7 @@ fetch(url_token, {
 const axios = require('axios');
 const url = 'https://umami.enjoy61.com';
 const token =
-    "+vTbCJXDr7ukNWdFEa7yMiLexyU4vqUld4imm2ATBh5K/f7Hyz4hsKEZ1dbCM4SgJsWsW7vC/qTekoDcgrFqvvdAkmKwlH1Cb91NI1JbT+aqm9EjMnSfEJgX9Il9fzGt1ZMy5bDkNZ6k3OFxytkOvGf8NNhB3ThL4uSvoplhttg/BT1/WjJ8SJGk7YgSq/MxakgTFCdXYS0Ac0cj4dDEeMzpVdXYbz+A2Dq/TZ91ChzGr6x7iIDss6dw+9avwrFemUMPwrXq5VTsPXRvzvzohdrKhrad8RkHNw77oBt6Nkic9UqGp0yOdrymP0BygREjTF6+zjst7ToQeYapgrDPt3MTMAdRLJN2SA==";
+    "m4Mc7bEF5KtnDIY2r10nsf0vFFv8d3iCS8jmxDayQ1voG3mgnyAyA1VGP/+d17sTifSYCqmBzTPdfD4orJ09jWGBb5aOq8DABcT+HH2D+Uvy3lfkKEkJFgYQdtRRLPusBvhgScdJpJ8fy5o4TPtgJxB71A+YnaGWs6Fcr3Pb5nh97K9JNHOxEAPgHlk19hKH6YjQdidSTruC4JHOx1iJClRsY1E/sqhJ5fVCzDp3ssaF71Viudc0VsnOp8BSbDy4du5O0tmT9sYia5KeOHTxpsiHO10CpN9ZklZt+OetNE/RXDhkqlt2iir1O5PYXUMg1dI2jYb5DNNfIr+6O7HPQ/D7K2i9eo8qwA==";
 const website_id = "3b1506e8-f2b7-4af5-8f2e-760349a09854";
 
 /*
@@ -110,19 +110,55 @@ function update_stat(pageviews, sessions)
 
 get_single_pageview(token);
 
+const retry_times_max = 1;
+var retry_times = retry_times_max;
+var last_url;
 function get_single_pageview(token)
 {
-    // console.log("ok2");
+    //console.log("ok3");
     var cur_time = Date.parse(new Date());
 
-    const url_local = encodeURIComponent(window.location.pathname);
-    // console.log(url_local);
+    if (retry_times == retry_times_max)
+    {
+        last_url = window.location.pathname;
+        //console.log(window.location.pathname);
+    }
+    else
+    {
+        //console.log("en", last_url);
+        last_url = last_url.replace(new RegExp(/%2F/g), "/");
+        //console.log("re", last_url);
+    }
+    
+    const url_local = encodeURIComponent(last_url);
+    //console.log(url_local);
+    last_url = url_local;
+    
     const url_final = url + "/api/websites/" + website_id + "/stats?startAt=0&endAt=" + cur_time + "&url=" + url_local;
 
+    //console.log(url_final);
     axios.get(url_final, {headers : {'Authorization' : 'Bearer ' + token, 'mode' : 'cors'}})
         .then(response => {
-            // console.log(response.data.pageviews.value);
-            update_single_pageview(response.data.pageviews.value);
+            if (!response.data.pageviews.value)
+            {
+                if (retry_times)
+                {
+                    --retry_times;
+                    get_single_pageview(token);
+                }
+                else
+                {
+                    retry_times = retry_times_max;
+                    update_single_pageview(response.data.pageviews.value);
+                }
+
+            }
+            else
+            {
+                retry_times = retry_times_max;
+                //console.log(response.data.pageviews.value);
+                update_single_pageview(response.data.pageviews.value);
+            }
         })
         .catch(error => {
             console.log("error2"); // console.log(error);

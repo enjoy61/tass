@@ -8,13 +8,16 @@ $dark-footer-bg: $dark-tango-headbar-bg;
 	background: $footer-bg;
 	padding: 20px;
 	text-align: center;
+	//font-weight: bold;
+	//font-family: "GenYoGothic";
 }
 
 .footer-link {
 	cursor: default;
 	a {
+		// font-family: GohuFontuni14NerdFontMono, "GenYoGothic";
 		cursor: hand;
-		font-weight: bold;
+		// font-weight: bold;
 		color: $whole-color;
 		text-decoration: none;
 	}
@@ -25,10 +28,11 @@ $dark-footer-bg: $dark-tango-headbar-bg;
 }
 
 .footer-text {
+	// font-family: GohuFontuni14NerdFontMono, "GenYoGothic";
 	cursor: default;
 	a {
 		color: $whole-color;
-		font-weight: bold;
+		// font-weight: bold;
 		text-decoration: none;
 	}
 }

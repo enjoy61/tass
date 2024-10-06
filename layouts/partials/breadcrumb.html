@@ -3,6 +3,6 @@
     {{ range after 1 .Ancestors.Reverse }}
         <li class="breadcrumb-item breadcrumb-nav-item"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
     {{ end }}
-    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+    <li class="breadcrumb-item active" aria-current="page" style="color:#1d2d35">{{ .Title }}</li>
   </ol>
 </nav>

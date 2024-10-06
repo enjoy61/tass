@@ -4,7 +4,7 @@
 {{ $last_year_val := "" }}
 {{ $last_month_val := "" }}
 {{ $last_day_val := "" }}
-{{ $format := "Mon, 2 Jan 2006" }}      
+{{ $format := ":date_medium" }}      
 
 {{ $sections := slice "notebook" "blog" "handbook" }}
 
@@ -29,7 +29,7 @@
 	        {{ if ne $last_day_val $day_val }}
 	            <br>
 	            
-	            <h3> &thinsp; {{ $current_target | time.Format $format }} </h3>
+	            <h3> &thinsp; {{ $current_target | time.Format $format }} {{ $current_target | time.Format "  Mon"  }} </h3>
 
 	            {{ $last_day_val = $day_val }}
 	        {{ end }}
@@ -70,7 +70,7 @@
 
 	        {{ if ne $last_day_val $day_val }}
 	            <br>
-	            <h3> &thinsp; {{ $current_target | time.Format $format }} </h3>
+	            <h3> &thinsp; {{ $current_target | time.Format $format }} {{ $current_target | time.Format "  Mon"  }} </h3>
 
 	            {{ $last_day_val = $day_val }}
 	        {{ end }}

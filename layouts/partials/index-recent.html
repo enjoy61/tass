@@ -1,7 +1,7 @@
 {{ $year_format := "2006" }}
 {{ $month_format := "January" }}
 {{ $day_format := "_2" }}
-{{ $format := "Mon, 2 Jan 2006" }} 
+{{ $format := ":date_medium" }} 
 {{ $max := 10 }} 
 
 <div class="container p-5 my-5 index-panel">
@@ -31,7 +31,7 @@
 
         {{ if ne $last_day_val $day_val }}
             <br>
-            <h5> {{ $current_target | time.Format $format }} </h5>
+            <h5> {{ $current_target | time.Format $format }} {{ $current_target | time.Format "  Mon"  }} </h5>
 
             {{ $last_day_val = $day_val }}
         {{ end }}
@@ -56,10 +56,12 @@
     {{ end }}
 </div>
 
+<div style="padding-bottom: 0.1px; "></div>
+
 {{ $year_format := "2006" }}
 {{ $month_format := "January" }}
 {{ $day_format := "_2" }}
-{{ $format := "Mon, 2 Jan 2006" }} 
+{{ $format := ":date_medium" }} 
 {{ $max := 10 }} 
 
 <div class="container p-5 my-5 index-panel">
@@ -88,7 +90,7 @@
 
         {{ if ne $last_day_val $day_val }}
             <br>
-            <h5> {{ $current_target | time.Format $format }} </h5>
+            <h5> {{ $current_target | time.Format $format }} {{ $current_target | time.Format "  Mon"  }} </h5>
 
             {{ $last_day_val = $day_val }}
         {{ end }}

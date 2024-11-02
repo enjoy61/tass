@@ -12,7 +12,7 @@
     {{ $last_month_val := "" }}
     {{ $last_day_val := "" }}
 
-    {{ $sections := slice "notebook" "blog" "handbook" }}
+    {{ $sections := slice "notebook" "blogs" "handbook" }}
     {{ range first $max (where .Site.RegularPages.ByPublishDate.Reverse "Section" "in" $sections) }}
         {{ $current_target := .PublishDate }}
         {{ $year_val := $current_target | time.Format $year_format }}
@@ -37,8 +37,8 @@
         {{ end }}
 
         <h6>
-            {{ if eq .Section "blog" }}
-            <nobr><b>日志</b></nobr>
+            {{ if eq .Section "blogs" }}
+            <nobr><b>随笔</b></nobr>
             {{ else if eq .Section "notebook" }}
             <nobr><b>笔记</b></nobr>
             {{ else if eq .Section "handbook" }}            
@@ -96,8 +96,8 @@
         {{ end }}
 
         <h6>
-            {{ if eq .Section "blog" }}
-            <nobr><b>日志</b></nobr>
+            {{ if eq .Section "blogs" }}
+            <nobr><b>随笔</b></nobr>
             {{ else if eq .Section "notebook" }}
             <nobr><b>笔记</b></nobr>
             {{ else if eq .Section "handbook" }}            
